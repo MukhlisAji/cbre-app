@@ -45,16 +45,34 @@ export default function PropertyDatabase() {
         setSelectedOption(e.target.value);
     };
 
-    const screenHeight = window.innerHeight;
-    // console.log('Screen height:', screenHeight);
-    const newHigh = screenHeight - 200;
+
+    const [sectionHeight, setSectionHeight] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const screenHeight = window.innerHeight;
+            const newHeight = screenHeight - 200; // Subtract 200px for any other fixed content
+            setSectionHeight(newHeight);
+        };
+
+        // Set initial height
+        handleResize();
+
+        // Add event listener to handle window resize
+        window.addEventListener('resize', handleResize);
+
+        // Clean up event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <div className='flex-1 relative bg-white px-4 py-4 text-c-dark-grayish'>
             <span className="px-3 py-3 text-lg font-semibold mb-4">NEW PROPERTY DETAILS</span>
             <p className="px-3 py-3 mb-4 text-xs text-red-700 border-b border-neutral-200">Mandatory Fields: Building Name, Postal Code, Street Number, Street Name, Region, Micro Market, Zoning, Property Usage, Ownership Structure/Title</p>
 
-            <div style={{ height: `${newHigh}px` }} className='flex-1 overflow-y-auto flex flex-col px-3 py-3'>
+            <div style={{ height: `${sectionHeight}px` }} className='flex-1 overflow-y-auto flex flex-col px-3 py-3'>
                 <form onSubmit={handleSubmit} className="relative">
                     <span className="text-md inline-block mb-5 font-semibold">Basic Information</span>
                     <div className="mb-4 flex items-center">

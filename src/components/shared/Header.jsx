@@ -15,7 +15,7 @@ export default function Header() {
   return (
   <div className='shadow-sm'>
     {/* Header */}
-    <div className='bg-gradient-to-r from-c-dark-grayish via-c-dark-grayish to-c-teal h-10 px-4 flex justify-between items-center border-b border-gray-200'>
+    <div className='z-10 bg-gradient-to-r from-c-dark-grayish via-c-dark-grayish to-c-light-grayish h-10 px-4 flex justify-between items-center border-b border-gray-200 shadow shadow-lg'>
       <div className='relative'>
         <HiOutlineArrowLeft 
           fontSize={18} 
@@ -152,11 +152,11 @@ export default function Header() {
     <div className="hidden md:block"> {/* Hide on screens smaller than medium (md) */}
         <span className="text-gray-400 mr-2 text-xs">{formattedPath}</span>
       </div>
-      <div className="relative w-full md:w-64 flex justify-end"> {/* Added flex justify-end for right alignment */}
+      <div className="relative w-96 flex justify-end"> {/* Added flex justify-end for right alignment */}
         <input 
           type="text" 
           placeholder="Search..." 
-          className="border border-gray-300 rounded-lg px-4 py-0.5 focus:outline-none focus:border-c-dark-grayish w-200 mr-1" 
+          className="border w-full border-gray-300 text-sm font-normal rounded-lg px-4 py-0.5 focus:outline-none focus:border-c-dark-grayish w-200 mr-1" 
         />
         {/* Add your search button or icon here */}
         <IoIosSearch fontSize={20} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-200"/>

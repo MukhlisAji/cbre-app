@@ -16,6 +16,7 @@ module.exports = {
         'c-light-teal':  '#a7c7c9',
         'c-dark-teal' : '##0a2b2a',
         'c-dark-grayish' : '#485558',
+        'c-light-grayish' : '#7A8A98'
         
       },
     },

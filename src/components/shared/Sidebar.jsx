@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../../lib/const/Navigation';
 import { LiaAngleRightSolid } from 'react-icons/lia';
 
-const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
+const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-xs';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
@@ -35,11 +35,11 @@ export default function Sidebar() {
   };
 
   return (
-<div className={`bg-white p-3 flex flex-col text-neutral-700 shadow-xl z-10 ${isOpen ? 'min-w-72 ' : 'w-20 '}`}>
-      <div className="flex flex-col items-center px-1 py-3">
+<div className={`bg-white p-3 flex flex-col text-neutral-700 shadow-xl z-10 ${isOpen ? 'min-w-64 ' : 'w-20 '}`}>
+      <div className="flex flex-col items-center px-1">
         <a href="/" className="flex flex-col cursor-pointer focus:outline-none hover:no-underline">
-          <div className="flex items-center gap-2">
-            <span className="text-c-dark-grayish text-6xl font-bold">one</span>
+          <div className="flex gap-2">
+            <span className="text-c-dark-grayish font-logo text-7xl font-semibold">one</span>
           </div>
           <span className="text-xs text-c-dark-grayish ml-auto">by CBRE</span>
         </a>

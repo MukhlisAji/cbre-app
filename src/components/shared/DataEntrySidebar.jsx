@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../../lib/const/DataEntryNavigation';
 import { LiaAngleRightSolid } from 'react-icons/lia';
 
-const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
+const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-xs';
 
 export default function DataEntrySidebar() {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
@@ -37,9 +37,9 @@ export default function DataEntrySidebar() {
   return (
 <div className={`bg-white p-3 flex flex-col text-neutral-700 shadow-xl z-10 ${isOpen ? 'min-w-64 ' : 'w-20 '}`}>
       <div className="flex flex-col items-center px-1 py-3">
-        <a href="/" className="flex flex-col cursor-pointer focus:outline-none hover:no-underline">
+        <a href="/data-entry-portal/mass-upload" className="flex flex-col cursor-pointer focus:outline-none hover:no-underline">
           <div className="flex items-center gap-2">
-            <span className={`text-c-dark-grayish  ${isOpen ? 'text-2xl' : 'text-md' } font-bold`}>DATA ENTRY</span>
+            <span className={`text-c-dark-grayish  ${isOpen ? 'text-4xl' : 'text-md' } font-bold font-logo`}>data entry</span>
           </div>
           <span className="text-xs text-c-dark-grayish ml-auto">by CBRE</span>
         </a>
