@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 export default function PropertyDatabase() {
     const [buildingName, setBuildingName] = useState('');
-    const [country, setCountry] = useState('');
+    // const [country, setCountry] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [streetNumber, setStreetNumber] = useState('');
     const [streetName, setStreetName] = useState('');
     const [propertyType, setPropertyType] = useState([]);
     const [propertySubType, setPropertySubType] = useState([]);
-    const [grade, setGrade] = useState('');
-    const [region, setRegion] = useState('');
-    const [zoning, setZoning] = useState('');
 
     const handlePropertyTypeChange = (e) => {
         const value = e.target.value;

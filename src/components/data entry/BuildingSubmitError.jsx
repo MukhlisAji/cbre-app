@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BUILDINGDATADUMMY from '../../lib/const/DataEntryDummy';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function BuildingDataEntry() {
     const [sectionHeight, setSectionHeight] = useState(0);
@@ -8,7 +8,7 @@ export default function BuildingDataEntry() {
     const [showModal, setShowModal] = useState(true); // Show modal on page load
 
     const navigate = useNavigate();
-    const location = useLocation();
+    // const location = useLocation();
 
     const handleTemplateSearchChange = (event) => setTemplateSearchTerm(event.target.value);
 

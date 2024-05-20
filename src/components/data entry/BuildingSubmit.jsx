@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import BUILDINGDATADUMMY from '../../lib/const/DataEntryDummy';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function BuildingSubmit() {
     const [sectionHeight, setSectionHeight] = useState(0);
     const [templateSearchTerm, setTemplateSearchTerm] = useState('');
     const [showModal, setShowModal] = useState(false);
-    const [navigateToNewEntry, setNavigateToNewEntry] = useState(false);
+    // const [navigateToNewEntry, setNavigateToNewEntry] = useState(false);
 
     const navigate = useNavigate();
-    const location = useLocation();
+    // const location = useLocation();
 
     const handleTemplateSearchChange = (event) => setTemplateSearchTerm(event.target.value);
 

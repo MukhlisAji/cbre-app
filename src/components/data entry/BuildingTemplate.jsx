@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { RiDownloadCloud2Fill, RiUploadCloud2Fill } from 'react-icons/ri';
 import BUILDINGDATADUMMY from '../../lib/const/DataEntryDummy';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { IoIosSearch } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 export default function BuildingTemplate() {
   const [selectedTemplate, setSelectedTemplate] = useState('mandatory');
   const [selectedBuildings, setSelectedBuildings] = useState([]);
-  const [buildingSearchTerm, setBuildingSearchTerm] = useState('');
+  const [buildingSearchTerm] = useState('');
   const [templateSearchTerm, setTemplateSearchTerm] = useState('');
   const [dragging, setDragging] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const buildingData = [
     { id: 1, name: 'JTC Space @ Buroh55 Ayer Rajah Crescent' },
@@ -30,7 +29,7 @@ export default function BuildingTemplate() {
 
   const handleTemplateChange = (e) => setSelectedTemplate(e.target.value);
 
-  const handleBuildingSearchChange = (event) => setBuildingSearchTerm(event.target.value);
+  // const handleBuildingSearchChange = (event) => setBuildingSearchTerm(event.target.value);
   const handleTemplateSearchChange = (event) => setTemplateSearchTerm(event.target.value);
 
   const filteredBuildings = buildingData.filter((building) =>
@@ -56,7 +55,7 @@ export default function BuildingTemplate() {
   };
 
   const handleUpload = (e) => {
-    const file = e.target.files[0];
+    // const file = e.target.files[0];
     // Logic for uploading file
   };
 
@@ -78,12 +77,11 @@ export default function BuildingTemplate() {
   const handleDrop = (e) => {
     e.preventDefault();
     setDragging(false);
-    const file = e.dataTransfer.files[0];
+    // const file = e.dataTransfer.files[0];
     // Logic for uploading file
   };
 
   const handleSubmit = (path) => {
-    const currentPath = location.pathname;
     navigate(path);
   };
 
@@ -158,6 +156,33 @@ export default function BuildingTemplate() {
                         <th className="mx-1.5 py-3 px-2.5 w-1/8 "></th>
                         <th className="w-7/8 ">Building Name</th>
                       </tr>
+                      {/* <tr className="bg-white text-c-dark-grayish">
+                        <td className="px-2 py-1 border">
+                          <input
+                            type="checkbox"
+                            checked={selectedBuildings.length === 0}
+                            onChange={() => setSelectedBuildings([])}
+                            className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal border"
+                          />
+                        </td>
+                        <td className="px-0 py-0 text-left relative">
+                          <label htmlFor="table-search" className="sr-only">Search building...</label>
+                          <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                          </div>
+                          <input
+                            type="text"
+                            id="table-search"
+                            placeholder="Search..."
+                            value={templateSearchTerm}
+                            onChange={handleBuildingSearchChange}
+                            className="w-full px-10 py-1 text-sm font-thin focus:outline-none focus:border-c-teal hover:border-blue-500"
+                          />
+                        </td>
+                      </tr> */}
+
                     </thead>
                     <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style={{ height: "200px" }}>
                       {/* <tr class="flex w-full mb-4">
@@ -165,18 +190,18 @@ export default function BuildingTemplate() {
                         <td class="p-4 w-4/5">Cats</td>
                       </tr> */}
                       {filteredBuildings.map((building, index) => (
-                          <tr key={building.id} className={`flex w-full hover:bg-gray-200 ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
-                            <td className="w-1/8 ">
-                              <input
-                                type="checkbox"
-                                checked={selectedBuildings.includes(building.id)}
-                                onChange={() => handleBuildingSelect(building.id)}
-                                className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal"
-                              />
-                            </td>
-                            <td className="w-7/8 text-c-dark-grayish">{building.name}</td>
-                          </tr>
-                        ))}
+                        <tr key={building.id} className={`flex w-full hover:bg-gray-200 ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
+                          <td className="w-1/8 ">
+                            <input
+                              type="checkbox"
+                              checked={selectedBuildings.includes(building.id)}
+                              onChange={() => handleBuildingSelect(building.id)}
+                              className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal"
+                            />
+                          </td>
+                          <td className="w-7/8 text-c-dark-grayish">{building.name}</td>
+                        </tr>
+                      ))}
 
                     </tbody>
                   </table>
@@ -215,7 +240,7 @@ export default function BuildingTemplate() {
                   <div className="items-center flex items-center max-h-48 mx-auto -mt-10">
                     <RiUploadCloud2Fill fontSize={60} className="text-yellow-400" />
                   </div>
-                  <p className="pointer-none text-gray-500 "><span class="text-sm">Drag and drop files here <br /> or </span> <a class="text-blue-600 hover:underline cursor-pointer">select a file</a> <span className='font-sm'>from your computer</span></p>
+                  <p className="pointer-none text-gray-500 "><span class="text-sm">Drag and drop files here <br /> or </span> <span class="text-blue-600 hover:underline cursor-pointer">select a file</span> <span className='font-sm'>from your computer</span></p>
                 </div>
                 <input id="file-upload" type="file" className="hidden" onChange={handleUpload} />
               </label>

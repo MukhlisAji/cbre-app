@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/shared/Layout";
 import Dashboard from "./components/Dashboard";
-import DataEntryPortal from "./components/shared/DataEntryPortal";
 import PropertySearch from "./components/PropertySearch";
 import NotFound from "./components/NotFound";
 import DataEntryLayout from "./components/shared/DataEntryLayout";

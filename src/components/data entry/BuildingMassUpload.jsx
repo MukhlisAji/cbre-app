@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsBuildingFillAdd, BsBuildingFillExclamation } from 'react-icons/bs';
-import { useHistory, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function BuildingMassUpload() {
   const navigate = useNavigate()
@@ -15,12 +15,12 @@ export default function BuildingMassUpload() {
 
   return (
     <div className="flex justify-center bg-white">
-              <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
-           onClick={() => handleCardClick('/building-template', 'new')}>
+      <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
+        onClick={() => handleCardClick('/building-template', 'new')}>
         <div className="p-6">
           <div className="flex items-center justify-center">
             {/* Building Icon */}
-            <BsBuildingFillAdd fontSize={60} className='text-yellow-400'/>
+            <BsBuildingFillAdd fontSize={60} className='text-yellow-400' />
           </div>
           <div className="text-center mt-4">
             <p className="text-xl font-semibold text-gray-800">New Building</p>
@@ -29,11 +29,11 @@ export default function BuildingMassUpload() {
         </div>
       </div>
       <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
-           onClick={() => handleCardClick('/building-template', 'update')}>
+        onClick={() => handleCardClick('/building-template', 'update')}>
         <div className="p-6">
           <div className="flex items-center justify-center">
             {/* Building Icon */}
-            <BsBuildingFillExclamation fontSize={60} className='text-yellow-400'/> 
+            <BsBuildingFillExclamation fontSize={60} className='text-yellow-400' />
           </div>
           <div className="text-center mt-4">
             <p className="text-xl font-semibold text-gray-800">Update Building</p>

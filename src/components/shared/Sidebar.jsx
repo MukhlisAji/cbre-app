@@ -10,9 +10,9 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
   const [submenuStates, setSubmenuStates] = useState({});
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleSidebar = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   useEffect(() => {
     const handleResize = () => {
