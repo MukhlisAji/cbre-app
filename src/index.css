@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
     --scrollbar-width: 8px; /* Adjust this value to make the scrollbar slimmer or wider */
     --scrollbar-color: #cccccc; /* Adjust this value to change the scrollbar color */

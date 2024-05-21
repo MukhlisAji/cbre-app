@@ -16,6 +16,12 @@ import LeaseMassUpload from "./components/data entry/LeaseMassUpload";
 import ClientMassUpload from "./components/data entry/ClientMassUpload";
 import LeaseTemplate from "./components/data entry/LeaseTemplate";
 import ClientTemplate from "./components/data entry/ClientTemplate";
+import SpaceSubmitError from "./components/data entry/SpaceSubmitError";
+import SpaceSubmit from "./components/data entry/SpaceSubmit";
+import LeaseSubmitError from "./components/data entry/LeaseSubmitError";
+import LeaseSubmit from "./components/data entry/LeaseSubmit";
+import ClientSubmitError from "./components/data entry/ClientSubmitError";
+import ClientSubmit from "./components/data entry/ClientSubmit";
 
 function App() {
   return (
@@ -36,12 +42,18 @@ function App() {
 
           <Route path="space" element={<SpaceMassUpload />} />
           <Route path="space/template" element={<SpaceTemplate />} />
+          <Route path="space/submit/error" element={<SpaceSubmitError />} />
+          <Route path="space/submit" element={<SpaceSubmit />} />
 
           <Route path="lease" element={<LeaseMassUpload />} />
           <Route path="lease/template" element={<LeaseTemplate />} />
+          <Route path="lease/submit/error" element={<LeaseSubmitError />} />
+          <Route path="lease/submit" element={<LeaseSubmit />} />
 
           <Route path="client" element={<ClientMassUpload />} />
           <Route path="client/template" element={<ClientTemplate />} />
+          <Route path="client/submit/error" element={<ClientSubmitError />} />
+          <Route path="client/submit" element={<ClientSubmit />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

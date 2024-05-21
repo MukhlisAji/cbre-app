@@ -1,5 +1,4 @@
 
-
 const BUILDINGDATADUMMY = [
     {
         "id": 1,
@@ -49,7 +48,69 @@ const BUILDINGDATADUMMY = [
         "landAreaRemark": "Remark F",
         "errorMessage": "Invalid building name"
     }
-]
+];
 
+const SPACEDATADUMMY = [
+    {
+        "id": 1,
+        "Space Name": "Office Space",
+        "Floor": 5,
+        "Unit No": "501"
+    },
+    {
+        "id": 2,
+        "Space Name": "Conference Room",
+        "Floor": 3,
+        "Unit No": "305"
+    },
+    {
+        "id": 3,
+        "Space Name": "Lounge Area",
+        "Floor": 1,
+        "Unit No": "101"
+    },
+    {
+        "id": 4,
+        "Space Name": "Storage Room",
+        "Floor": 2,
+        "Unit No": "202"
+    },
+    {
+        "id": 5,
+        "Space Name": "Meeting Room",
+        "Floor": 4,
+        "Unit No": "402"
+    },
+    {
+        "id": 6,
+        "Space Name": "Kitchen",
+        "Floor": 1,
+        "Unit No": "102"
+    },
+    {
+        "id": 7,
+        "Space Name": "Reception Area",
+        "Floor": 1,
+        "Unit No": "103"
+    },
+    {
+        "id": 8,
+        "Space Name": "Break Room",
+        "Floor": 2,
+        "Unit No": "201"
+    },
+    {
+        "id": 9,
+        "Space Name": "IT Room",
+        "Floor": 3,
+        "Unit No": "303"
+    },
+    {
+        "id": 10,
+        "Space Name": "Restroom",
+        "Floor": 1,
+        "Unit No": "104"
+    }
+];
 
-export default BUILDINGDATADUMMY;
+export { BUILDINGDATADUMMY, SPACEDATADUMMY };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import BUILDINGDATADUMMY from '../lib/const/DataEntryDummy';
+import { BUILDINGDATADUMMY } from '../lib/const/DataEntryDummy';
 
 const columns = [
   { field: 'buildingName', headerName: 'Building Name', flex: 1, editable: true },

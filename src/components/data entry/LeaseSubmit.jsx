@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
+import { SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 
-export default function BuildingSubmit() {
+export default function LeaseSubmit() {
     const [sectionHeight, setSectionHeight] = useState(0);
     const [templateSearchTerm, setTemplateSearchTerm] = useState('');
     const [showModal, setShowModal] = useState(false);
@@ -20,13 +20,13 @@ export default function BuildingSubmit() {
     const handleModalClose = (submitAnother) => {
         setShowModal(false);
         if (submitAnother) {
-            navigate('/data-entry-portal/mass-upload/building'); // Navigate to the same page to submit another data entry
+            navigate('/data-entry-portal/mass-upload/lease'); // Navigate to the same page to submit another data entry
         } else {
             navigate('/home'); // Navigate to a different page, e.g., home or another section
         }
     };
 
-    const filteredTemplates = BUILDINGDATADUMMY.filter((item) =>
+    const filteredTemplates = SPACEDATADUMMY.filter((item) =>
         Object.values(item).some((value) =>
             value.toString().toLowerCase().includes(templateSearchTerm.toLowerCase())
         )
@@ -105,30 +105,28 @@ export default function BuildingSubmit() {
                     />
                 </div>
                 <div className="overflow-x-auto max-h-60">
-                    <table className="w-full">
-                        <thead className="sticky top-0 bg-white border">
-                            <tr className="bg-c-light-grayish text-white">
-                                <th className="px-6 py-3 text-left font-semibold">Building Name</th>
-                                <th className="px-6 py-3 text-left font-semibold">Postal Code</th>
-                                <th className="px-6 py-3 text-left font-semibold">Building Owner</th>
-                                <th className="px-6 py-3 text-left font-semibold">Land Area Remark</th>
-                                <th className="px-6 py-3 text-left font-semibold">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredTemplates.map((item, index) => (
-                                <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : ''}>
-                                    <td className="border px-6 py-3">{item.buildingName}</td>
-                                    <td className="border px-6 py-3">{item.postalCode}</td>
-                                    <td className="border px-6 py-3">{item.buildingOwner}</td>
-                                    <td className="border px-6 py-3">{item.landAreaRemark}</td>
-                                    <td className="border px-6 py-3">
-                                        <button onClick={() => handleEdit(item.id)} className="text-blue-600 hover:underline">Edit</button>
-                                    </td>
+                <table className="w-full">
+                            <thead className="sticky top-0 bg-white border">
+                                <tr className="bg-c-light-grayish text-white">
+                                    <th className="px-6 py-3 text-left font-semibold">Space Name</th>
+                                    <th className="px-6 py-3 text-left font-semibold">Floor</th>
+                                    <th className="px-6 py-3 text-left font-semibold">Unit No</th>
+                                    <th className="px-6 py-3 text-left font-semibold">Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {filteredTemplates.map((item, index) => (
+                                    <tr key={index} className={`hover:bg-gray-200 ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
+                                        <td className="border px-6 py-3">{item['Space Name']}</td>
+                                        <td className="border px-6 py-3">{item.Floor}</td>
+                                        <td className="border px-6 py-3">{item['Unit No']}</td>
+                                        <td className="border px-6 py-3">
+                                            <button onClick={() => handleEdit(item.id)} className="text-blue-600 hover:underline">Edit</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                 </div>
 
                 <div className="flex justify-end">

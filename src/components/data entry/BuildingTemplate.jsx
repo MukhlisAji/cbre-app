@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RiDownloadCloud2Fill, RiUploadCloud2Fill } from 'react-icons/ri';
-import BUILDINGDATADUMMY from '../../lib/const/DataEntryDummy';
+import { BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 
 export default function BuildingTemplate() {

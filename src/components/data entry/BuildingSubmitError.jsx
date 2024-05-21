@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import BUILDINGDATADUMMY from '../../lib/const/DataEntryDummy';
+import { BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 
-export default function BuildingDataEntry() {
+export default function BuildingSubmitError() {
     const [sectionHeight, setSectionHeight] = useState(0);
     const [templateSearchTerm, setTemplateSearchTerm] = useState('');
     const [showModal, setShowModal] = useState(true); // Show modal on page load
