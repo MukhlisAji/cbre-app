@@ -16,7 +16,7 @@ export default function SpaceMassUpload() {
     return (
         <div className="flex justify-center bg-white">
             <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
-                onClick={() => handleCardClick('/building-template', 'new')}>
+                onClick={() => handleCardClick('/space-template', 'new')}>
                 <div className="p-6">
                     <div className="flex items-center justify-center">
                         {/* Building Icon */}
@@ -30,7 +30,7 @@ export default function SpaceMassUpload() {
                 </div>
             </div>
             <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
-                onClick={() => handleCardClick('/building-template', 'update')}>
+                onClick={() => handleCardClick('/space-template', 'update')}>
                 <div className="p-6">
                     <div className="flex items-center justify-center">
                         {/* Building Icon */}

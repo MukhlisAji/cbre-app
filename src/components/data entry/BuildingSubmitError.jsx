@@ -123,7 +123,7 @@ export default function BuildingDataEntry() {
 
                 <div className="flex justify-end">
                     <button
-                        onClick={() => handleSubmit('/data-entry-portal/mass-upload/building/building-submit')}
+                        onClick={() => handleSubmit('/data-entry-portal/mass-upload/building/submit')}
                         className="w-32 mx-2 py-2 mt-3 bg-neutral-200 text-c-dark-grayish hover:text-white hover:bg-c-teal focus:outline-none shadow-md"
                     >
                         Submit

@@ -3,7 +3,7 @@ import { RiDownloadCloud2Fill, RiUploadCloud2Fill } from 'react-icons/ri';
 import BUILDINGDATADUMMY from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 
-export default function BuildingTemplate() {
+export default function ClientTemplate() {
   const [selectedTemplate, setSelectedTemplate] = useState('mandatory');
   const [selectedBuildings, setSelectedBuildings] = useState([]);
   const [buildingSearchTerm, setBuildingSearchTerm] = useState('');
@@ -295,7 +295,7 @@ export default function BuildingTemplate() {
 
           <div className="flex justify-end">
             <button
-              onClick={() => handleSubmit('/data-entry-portal/mass-upload/building/submit/error')}
+              onClick={() => handleSubmit('/data-entry-portal/mass-upload/building/building-submit/error')}
               className="w-32 mx-2 py-2 mt-3 bg-neutral-200 text-c-dark-grayish hover:text-white hover:bg-c-teal focus:outline-none shadow-md"
             >
               Submit

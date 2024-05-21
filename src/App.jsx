@@ -11,6 +11,11 @@ import ContainterTest from "./components/ContainterTest";
 import BuildingSubmit from "./components/data entry/BuildingSubmit";
 import BuildingSubmitError from "./components/data entry/BuildingSubmitError";
 import SpaceMassUpload from "./components/data entry/SpaceMassUpload";
+import SpaceTemplate from "./components/data entry/SpaceTemplate";
+import LeaseMassUpload from "./components/data entry/LeaseMassUpload";
+import ClientMassUpload from "./components/data entry/ClientMassUpload";
+import LeaseTemplate from "./components/data entry/LeaseTemplate";
+import ClientTemplate from "./components/data entry/ClientTemplate";
 
 function App() {
   return (
@@ -18,26 +23,32 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/" element={<Layout />}>
-          <Route index path="/home" element={<Dashboard />} />
-          <Route path="/property-search" element={<PropertySearch />} />
-          <Route path="/data-entry-portal/property-database" element={<PropertyDatabase />} />
+          <Route index path="home" element={<Dashboard />} />
+          <Route path="property-search" element={<PropertySearch />} />
+          <Route path="data-entry-portal/property-database" element={<PropertyDatabase />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        {/* <Route path="/data-entry-portal"> */}
-        <Route path="/data-entry-portal/mass-upload" element={<DataEntryLayout />}>
-          <Route path="/data-entry-portal/mass-upload/building" element={<BuildingMassUpload />} />
-          <Route path="/data-entry-portal/mass-upload/building/building-template" element={<BuildingTemplate />} />
-          <Route path="/data-entry-portal/mass-upload/building/building-submit/error" element={<BuildingSubmitError />} />
-          <Route path="/data-entry-portal/mass-upload/building/building-submit" element={<BuildingSubmit />} />
-          <Route path="/data-entry-portal/mass-upload/space" element={<SpaceMassUpload />} />
+        <Route path="data-entry-portal/mass-upload/*" element={<DataEntryLayout />}>
+          <Route path="building" element={<BuildingMassUpload />} />
+          <Route path="building/template" element={<BuildingTemplate />} />
+          <Route path="building/submit/error" element={<BuildingSubmitError />} />
+          <Route path="building/submit" element={<BuildingSubmit />} />
+
+          <Route path="space" element={<SpaceMassUpload />} />
+          <Route path="space/template" element={<SpaceTemplate />} />
+
+          <Route path="lease" element={<LeaseMassUpload />} />
+          <Route path="lease/template" element={<LeaseTemplate />} />
+
+          <Route path="client" element={<ClientMassUpload />} />
+          <Route path="client/template" element={<ClientTemplate />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
-        {/* </Route> */}
         <Route path="/test" element={<ContainterTest />} />
-
       </Routes>
     </Router>
+
   );
 }
 

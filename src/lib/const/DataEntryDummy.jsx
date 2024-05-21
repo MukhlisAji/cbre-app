@@ -2,6 +2,7 @@
 
 const BUILDINGDATADUMMY = [
     {
+        "id": 1,
         "buildingName": "Building A",
         "postalCode": "123456",
         "buildingOwner": "Owner A",
@@ -9,6 +10,7 @@ const BUILDINGDATADUMMY = [
         "errorMessage": "No error"
     },
     {
+        "id": 2,
         "buildingName": "Building B",
         "postalCode": "654321",
         "buildingOwner": "Owner B",
@@ -16,6 +18,7 @@ const BUILDINGDATADUMMY = [
         "errorMessage": "Postal code format invalid"
     },
     {
+        "id": 3,
         "buildingName": "Building C",
         "postalCode": "987654",
         "buildingOwner": "Owner C",
@@ -23,6 +26,7 @@ const BUILDINGDATADUMMY = [
         "errorMessage": "Owner information missing"
     },
     {
+        "id": 4,
         "buildingName": "Building D",
         "postalCode": "456789",
         "buildingOwner": "Owner D",
@@ -30,6 +34,7 @@ const BUILDINGDATADUMMY = [
         "errorMessage": "Land area remark too short"
     },
     {
+        "id": 5,
         "buildingName": "Building E",
         "postalCode": "123123",
         "buildingOwner": "Owner E",
@@ -37,6 +42,7 @@ const BUILDINGDATADUMMY = [
         "errorMessage": "Duplicate entry"
     },
     {
+        "id": 6,
         "buildingName": "Building F",
         "postalCode": "321321",
         "buildingOwner": "Owner F",
