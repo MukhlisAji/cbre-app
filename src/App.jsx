@@ -22,6 +22,11 @@ import LeaseSubmitError from "./components/data entry/LeaseSubmitError";
 import LeaseSubmit from "./components/data entry/LeaseSubmit";
 import ClientSubmitError from "./components/data entry/ClientSubmitError";
 import ClientSubmit from "./components/data entry/ClientSubmit";
+import Modal from 'react-modal';
+
+
+Modal.setAppElement('#root');
+
 
 function App() {
   return (

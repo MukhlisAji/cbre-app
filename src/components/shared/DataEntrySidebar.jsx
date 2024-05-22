@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../../lib/const/DataEntryNavigation';
 import { LiaAngleRightSolid } from 'react-icons/lia';
 
-const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-xs';
+const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
 
 export default function DataEntrySidebar() {
-  const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
+  const [isOpen, setIsOpen] = useState(window.innerWidth >= 680);
   const [submenuStates, setSubmenuStates] = useState({});
 
   // const toggleSidebar = () => {
@@ -16,7 +16,7 @@ export default function DataEntrySidebar() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsOpen(window.innerWidth >= 640); // Collapse sidebar automatically on small screens
+      setIsOpen(window.innerWidth >= 780); // Collapse sidebar automatically on small screens
     };
 
     window.addEventListener("resize", handleResize);

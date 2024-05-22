@@ -33,7 +33,7 @@ export default function Header() {
       <Popover>
         {({ open }) => (
           <>
-            <PopoverButton className={classnames(open && "bg-gray-200 text-c-dark-grayish", "p-1.5 rounded inline-flex items-center text-neutral-300 hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-c-dark-grayish")}>
+            <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-700", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
               <HiOutlineChatAlt fontSize={20}/>
             </PopoverButton>
             <Transition
@@ -61,7 +61,7 @@ export default function Header() {
       <Popover>
         {({ open }) => (
           <>
-            <PopoverButton className={classnames(open && "bg-gray-200 text-c-dark-grayish", "p-1.5 rounded inline-flex items-center text-neutral-300 hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-c-dark-grayish")}>
+            <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-700", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
               <HiOutlineBell fontSize={20}/>
             </PopoverButton>
             <Transition
@@ -156,10 +156,10 @@ export default function Header() {
         <input 
           type="text" 
           placeholder="Search..." 
-          className="border w-full border-gray-300 text-sm font-normal rounded-lg px-4 py-0.5 focus:outline-none focus:border-c-dark-grayish w-200 mr-1" 
+          className="border w-full border-gray-300 text-sm font-normal rounded-lg px-4 py-0.5 focus:outline-none hover:border-c-teal focus:border-c-teal w-200 mr-1" 
         />
         {/* Add your search button or icon here */}
-        <IoIosSearch fontSize={20} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-200"/>
+        <IoIosSearch fontSize={20} className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500"/>
       </div>
     </div>
   </div>

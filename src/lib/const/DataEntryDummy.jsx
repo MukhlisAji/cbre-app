@@ -1,52 +1,83 @@
-
 const BUILDINGDATADUMMY = [
     {
         "id": 1,
-        "buildingName": "Building A",
+        "buildingName": "Skyview Tower",
         "postalCode": "123456",
-        "buildingOwner": "Owner A",
-        "landAreaRemark": "Remark A",
+        "buildingOwner": "Skyline Properties",
+        "landAreaRemark": "Prime location in the city center",
         "errorMessage": "No error"
     },
     {
         "id": 2,
-        "buildingName": "Building B",
+        "buildingName": "Greenfield Plaza",
         "postalCode": "654321",
-        "buildingOwner": "Owner B",
-        "landAreaRemark": "Remark B",
+        "buildingOwner": "Greenfield Holdings",
+        "landAreaRemark": "Adjacent to Greenfield Park",
         "errorMessage": "Postal code format invalid"
     },
     {
         "id": 3,
-        "buildingName": "Building C",
+        "buildingName": "Horizon Heights",
         "postalCode": "987654",
-        "buildingOwner": "Owner C",
-        "landAreaRemark": "Remark C",
+        "buildingOwner": "Horizon Estates",
+        "landAreaRemark": "Excellent view of the horizon",
         "errorMessage": "Owner information missing"
     },
     {
         "id": 4,
-        "buildingName": "Building D",
+        "buildingName": "Riverside Building",
         "postalCode": "456789",
-        "buildingOwner": "Owner D",
-        "landAreaRemark": "Remark D",
+        "buildingOwner": "Riverside Developments",
+        "landAreaRemark": "Close to the Riverside Park",
         "errorMessage": "Land area remark too short"
     },
     {
         "id": 5,
-        "buildingName": "Building E",
+        "buildingName": "Maplewood Center",
         "postalCode": "123123",
-        "buildingOwner": "Owner E",
-        "landAreaRemark": "Remark E",
+        "buildingOwner": "Maplewood Real Estate",
+        "landAreaRemark": "Near Maplewood Mall",
         "errorMessage": "Duplicate entry"
     },
     {
         "id": 6,
-        "buildingName": "Building F",
+        "buildingName": "Oceanview Complex",
         "postalCode": "321321",
-        "buildingOwner": "Owner F",
-        "landAreaRemark": "Remark F",
+        "buildingOwner": "Oceanview Properties",
+        "landAreaRemark": "Overlooking the ocean",
         "errorMessage": "Invalid building name"
+    },
+    {
+        "id": 7,
+        "buildingName": "Pinecrest Building",
+        "postalCode": "123789",
+        "buildingOwner": "Pinecrest Realty",
+        "landAreaRemark": "Surrounded by pine trees",
+        "errorMessage": "Incorrect postal code"
+    },
+    {
+        "id": 8,
+        "buildingName": "Silverstone Tower",
+        "postalCode": "987123",
+        "buildingOwner": "Silverstone Group",
+        "landAreaRemark": "Modern office space",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 9,
+        "buildingName": "Golden Gate Plaza",
+        "postalCode": "654987",
+        "buildingOwner": "Golden Gate Enterprises",
+        "landAreaRemark": "Iconic landmark building",
+        "errorMessage": "Building owner missing"
+    },
+    {
+        "id": 10,
+        "buildingName": "Cedarwood Heights",
+        "postalCode": "321654",
+        "buildingOwner": "Cedarwood Estates",
+        "landAreaRemark": "Close to Cedarwood Forest",
+        "errorMessage": "Remark too short"
     }
 ];
 
