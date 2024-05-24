@@ -99,7 +99,7 @@ function SidebarLink({ item, isOpen, onClick, submenuOpen }) {
       {hasSubmenu && (
         <div
           ref={submenuRef}
-          className="flex flex-col bg-white shadow-sm z-11 gap-0.5 transition-all duration-300 ease-in-out overflow-hidden"
+          className="mt-0.5 flex flex-col shadow-sm bg-white z-11 gap-0.5 transition-all duration-300 ease-in-out overflow-hidden"
           style={{ height: submenuHeight }}
         >
           {item.submenu.map(submenuItem => (
@@ -107,7 +107,7 @@ function SidebarLink({ item, isOpen, onClick, submenuOpen }) {
               key={submenuItem.key}
               to={submenuItem.path}
               className={classnames(
-                'py-2 pl-12', // Indent submenu items for clarity
+                'py-2 pl-12 ', // Indent submenu items for clarity
                 pathname === submenuItem.path ? 'bg-c-teal text-white' : 'text-neutral-700',
                 linkClasses
               )}
