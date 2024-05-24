@@ -15,7 +15,7 @@ export default function BuildingMassUpload() {
 
   return (
     <div className="flex justify-center bg-white">
-      <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
+      <div className="max-w-md bg-neutral-100 border border-sm border-neutral-200 shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
         onClick={() => handleCardClick('/template', 'new')}>
         <div className="p-6">
           <div className="flex items-center justify-center">
@@ -28,7 +28,7 @@ export default function BuildingMassUpload() {
           </div>
         </div>
       </div>
-      <div className="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
+      <div className="max-w-md bg-neutral-100 border border-sm border-neutral-200 shadow-lg rounded-lg overflow-hidden mx-4 my-8 cursor-pointer transform transition-transform hover:scale-105"
         onClick={() => handleCardClick('/template', 'update')}>
         <div className="p-6">
           <div className="flex items-center justify-center">

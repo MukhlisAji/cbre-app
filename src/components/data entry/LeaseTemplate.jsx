@@ -403,10 +403,10 @@ export default function LeaseTemplate() {
                                 <tbody className="bg-white">
                                     {filteredTemplates.map((space, index) => (
                                         <tr key={space.id} className={`${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
-                                            <td className="px-6 py-3 text-neutral-700 border sm:w-3/12 md:w-3/8 lg:w-3/8">{space['Space Name']}</td>
-                                            <td className="px-6 py-3 text-neutral-700 border sm:w-2/12 md:w-2/8 lg:w-2/8">{space.Floor}</td>
-                                            <td className="px-6 py-3 text-neutral-700 border sm:w-2/12 md:w-2/8 lg:w-2/8">{space['Unit No']}</td>
-                                            <td className="px-6 py-3 text-neutral-700 border sm:w-1/12 md:w-1/8 lg:w-1/8">
+                                            <td className="px-6 py-2 text-neutral-700 border sm:w-3/12 md:w-3/8 lg:w-3/8">{space['Space Name']}</td>
+                                            <td className="px-6 py-2 text-neutral-700 border sm:w-2/12 md:w-2/8 lg:w-2/8">{space.Floor}</td>
+                                            <td className="px-6 py-2 text-neutral-700 border sm:w-2/12 md:w-2/8 lg:w-2/8">{space['Unit No']}</td>
+                                            <td className="px-6 py-2 text-neutral-700 border sm:w-1/12 md:w-1/8 lg:w-1/8">
                                                 <button onClick={() => handleEdit(space)} className="text-blue-600 hover:underline">Edit</button>
                                             </td>
                                         </tr>
