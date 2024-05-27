@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'c-teal': '#5a8184',        // Primary color resembling teal
+        'c-teal': '#5a8184',   
+        'c-weldon-blue' : '#7B9A9D',     // Primary color resembling teal
         'c-gray': '#d8ddde',        // Secondary color resembling gray
         'c-green': '#88bbac',       // Accent color resembling green
         'c-dark-gray': '#605e5c',  // Dark accent color resembling dark green

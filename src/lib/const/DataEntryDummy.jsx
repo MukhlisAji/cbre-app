@@ -78,70 +78,352 @@ const BUILDINGDATADUMMY = [
         "buildingOwner": "Cedarwood Estates",
         "landAreaRemark": "Close to Cedarwood Forest",
         "errorMessage": "Remark too short"
+    },
+    {
+        "id": 11,
+        "buildingName": "Elmwood Tower",
+        "postalCode": "765432",
+        "buildingOwner": "Elmwood Holdings",
+        "landAreaRemark": "Beautiful garden area",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 12,
+        "buildingName": "Lakeside Plaza",
+        "postalCode": "432156",
+        "buildingOwner": "Lakeside Properties",
+        "landAreaRemark": "Next to the lake",
+        "errorMessage": "Incorrect owner information"
+    },
+    {
+        "id": 13,
+        "buildingName": "Sunrise Tower",
+        "postalCode": "876543",
+        "buildingOwner": "Sunrise Estates",
+        "landAreaRemark": "Panoramic sunrise view",
+        "errorMessage": "Invalid postal code"
+    },
+    {
+        "id": 14,
+        "buildingName": "Mountainview Building",
+        "postalCode": "567890",
+        "buildingOwner": "Mountainview Realty",
+        "landAreaRemark": "Close to the mountains",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 15,
+        "buildingName": "Valleyview Complex",
+        "postalCode": "345678",
+        "buildingOwner": "Valleyview Properties",
+        "landAreaRemark": "Scenic valley view",
+        "errorMessage": "Invalid building name"
+    },
+    {
+        "id": 16,
+        "buildingName": "Brookside Plaza",
+        "postalCode": "234567",
+        "buildingOwner": "Brookside Holdings",
+        "landAreaRemark": "Near the brook",
+        "errorMessage": "Duplicate entry"
+    },
+    {
+        "id": 17,
+        "buildingName": "Highland Tower",
+        "postalCode": "987321",
+        "buildingOwner": "Highland Estates",
+        "landAreaRemark": "High elevation location",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 18,
+        "buildingName": "Meadowview Center",
+        "postalCode": "321987",
+        "buildingOwner": "Meadowview Realty",
+        "landAreaRemark": "Near Meadowview Park",
+        "errorMessage": "Incorrect postal code"
+    },
+    {
+        "id": 19,
+        "buildingName": "Evergreen Plaza",
+        "postalCode": "654123",
+        "buildingOwner": "Evergreen Enterprises",
+        "landAreaRemark": "Surrounded by evergreens",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 20,
+        "buildingName": "Stonebridge Building",
+        "postalCode": "321789",
+        "buildingOwner": "Stonebridge Holdings",
+        "landAreaRemark": "Next to Stonebridge",
+        "errorMessage": "Owner information missing"
+    },
+    {
+        "id": 21,
+        "buildingName": "Lakeview Heights",
+        "postalCode": "987654",
+        "buildingOwner": "Lakeview Estates",
+        "landAreaRemark": "Overlooking Lakeview",
+        "errorMessage": "Remark too short"
+    },
+    {
+        "id": 22,
+        "buildingName": "Mapleridge Plaza",
+        "postalCode": "543210",
+        "buildingOwner": "Mapleridge Properties",
+        "landAreaRemark": "Close to Mapleridge Park",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 23,
+        "buildingName": "Oakwood Tower",
+        "postalCode": "123890",
+        "buildingOwner": "Oakwood Enterprises",
+        "landAreaRemark": "Surrounded by oak trees",
+        "errorMessage": "Invalid postal code"
+    },
+    {
+        "id": 24,
+        "buildingName": "Willow Creek Center",
+        "postalCode": "890123",
+        "buildingOwner": "Willow Creek Holdings",
+        "landAreaRemark": "Near Willow Creek",
+        "errorMessage": "Duplicate entry"
+    },
+    {
+        "id": 25,
+        "buildingName": "Riverbend Plaza",
+        "postalCode": "567123",
+        "buildingOwner": "Riverbend Realty",
+        "landAreaRemark": "Next to Riverbend Park",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 26,
+        "buildingName": "Summit Tower",
+        "postalCode": "765432",
+        "buildingOwner": "Summit Properties",
+        "landAreaRemark": "Top of the hill location",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 27,
+        "buildingName": "Forestview Building",
+        "postalCode": "876321",
+        "buildingOwner": "Forestview Holdings",
+        "landAreaRemark": "View of the forest",
+        "errorMessage": "Invalid owner information"
+    },
+    {
+        "id": 28,
+        "buildingName": "Garden Plaza",
+        "postalCode": "432156",
+        "buildingOwner": "Garden Estates",
+        "landAreaRemark": "Beautiful garden area",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 29,
+        "buildingName": "Springfield Complex",
+        "postalCode": "543210",
+        "buildingOwner": "Springfield Properties",
+        "landAreaRemark": "Close to Springfield Park",
+        "errorMessage": "Owner information missing"
+    },
+    {
+        "id": 30,
+        "buildingName": "Maple Grove Center",
+        "postalCode": "123654",
+        "buildingOwner": "Maple Grove Holdings",
+        "landAreaRemark": "Near Maple Grove Forest",
+        "errorMessage": "Invalid building name"
+    },
+    {
+        "id": 31,
+        "buildingName": "Brooklyn Tower",
+        "postalCode": "654321",
+        "buildingOwner": "Brooklyn Estates",
+        "landAreaRemark": "Next to Brooklyn Park",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 32,
+        "buildingName": "Westwood Building",
+        "postalCode": "432987",
+        "buildingOwner": "Westwood Holdings",
+        "landAreaRemark": "Close to Westwood Forest",
+        "errorMessage": "Incorrect postal code"
+    },
+    {
+        "id": 33,
+        "buildingName": "Crestwood Plaza",
+        "postalCode": "321654",
+        "buildingOwner": "Crestwood Realty",
+        "landAreaRemark": "View of Crestwood Hills",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 34,
+        "buildingName": "Birchwood Heights",
+        "postalCode": "654123",
+        "buildingOwner": "Birchwood Enterprises",
+        "landAreaRemark": "Near Birchwood Park",
+        "errorMessage": "Invalid postal code"
+    },
+    {
+        "id": 35,
+        "buildingName": "Hilltop Complex",
+        "postalCode": "987321",
+        "buildingOwner": "Hilltop Properties",
+        "landAreaRemark": "Top of Hilltop Ridge",
+        "errorMessage": "Owner information missing"
+    },
+    {
+        "id": 36,
+        "buildingName": "Seaview Tower",
+        "postalCode": "321123",
+        "buildingOwner": "Seaview Realty",
+        "landAreaRemark": "Overlooking the sea",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 37,
+        "buildingName": "Woodland Plaza",
+        "postalCode": "543210",
+        "buildingOwner": "Woodland Enterprises",
+        "landAreaRemark": "Close to Woodland Park",
+        "errorMessage": "Duplicate entry"
+    },
+    {
+        "id": 38,
+        "buildingName": "Meadowbrook Center",
+        "postalCode": "987123",
+        "buildingOwner": "Meadowbrook Holdings",
+        "landAreaRemark": "Near Meadowbrook Field",
+        "errorMessage": "Invalid building name"
+    },
+    {
+        "id": 39,
+        "buildingName": "Parkside Tower",
+        "postalCode": "321789",
+        "buildingOwner": "Parkside Realty",
+        "landAreaRemark": "Adjacent to Parkside",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 40,
+        "buildingName": "Highpoint Building",
+        "postalCode": "654987",
+        "buildingOwner": "Highpoint Estates",
+        "landAreaRemark": "Top of Highpoint Hill",
+        "errorMessage": "Incorrect postal code"
+    },
+    {
+        "id": 41,
+        "buildingName": "Ridgeview Plaza",
+        "postalCode": "432123",
+        "buildingOwner": "Ridgeview Properties",
+        "landAreaRemark": "View of Ridgeview Ridge",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 42,
+        "buildingName": "Terrace Heights",
+        "postalCode": "987456",
+        "buildingOwner": "Terrace Enterprises",
+        "landAreaRemark": "Near Terrace Park",
+        "errorMessage": "Invalid postal code"
+    },
+    {
+        "id": 43,
+        "buildingName": "Cliffside Complex",
+        "postalCode": "321456",
+        "buildingOwner": "Cliffside Realty",
+        "landAreaRemark": "Next to Cliffside",
+        "errorMessage": "Owner information missing"
+    },
+    {
+        "id": 44,
+        "buildingName": "Everest Tower",
+        "postalCode": "876543",
+        "buildingOwner": "Everest Holdings",
+        "landAreaRemark": "High altitude building",
+        "errorMessage": "Duplicate entry"
+    },
+    {
+        "id": 45,
+        "buildingName": "Bluewater Plaza",
+        "postalCode": "432789",
+        "buildingOwner": "Bluewater Properties",
+        "landAreaRemark": "Close to Bluewater Bay",
+        "errorMessage": "Invalid building name"
+    },
+    {
+        "id": 46,
+        "buildingName": "Southridge Building",
+        "postalCode": "654123",
+        "buildingOwner": "Southridge Enterprises",
+        "landAreaRemark": "View of Southridge",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 47,
+        "buildingName": "Sunset Heights",
+        "postalCode": "987654",
+        "buildingOwner": "Sunset Realty",
+        "landAreaRemark": "Panoramic sunset view",
+        "errorMessage": "Owner information missing"
+    },
+    {
+        "id": 48,
+        "buildingName": "Lakeshore Tower",
+        "postalCode": "543210",
+        "buildingOwner": "Lakeshore Estates",
+        "landAreaRemark": "Overlooking Lakeshore",
+        "errorMessage": "Invalid postal code"
+    },
+    {
+        "id": 49,
+        "buildingName": "Northview Complex",
+        "postalCode": "321987",
+        "buildingOwner": "Northview Holdings",
+        "landAreaRemark": "View of Northview",
+        "errorMessage": "No error"
+    },
+    {
+        "id": 50,
+        "buildingName": "Fairview Plaza",
+        "postalCode": "123456",
+        "buildingOwner": "Fairview Enterprises",
+        "landAreaRemark": "Next to Fairview Park",
+        "errorMessage": "Duplicate entry"
     }
 ];
 
+
 const SPACEDATADUMMY = [
-    {
-        "id": 1,
-        "Space Name": "Office Space",
-        "Floor": 5,
-        "Unit No": "501"
-    },
-    {
-        "id": 2,
-        "Space Name": "Conference Room",
-        "Floor": 3,
-        "Unit No": "305"
-    },
-    {
-        "id": 3,
-        "Space Name": "Lounge Area",
-        "Floor": 1,
-        "Unit No": "101"
-    },
-    {
-        "id": 4,
-        "Space Name": "Storage Room",
-        "Floor": 2,
-        "Unit No": "202"
-    },
-    {
-        "id": 5,
-        "Space Name": "Meeting Room",
-        "Floor": 4,
-        "Unit No": "402"
-    },
-    {
-        "id": 6,
-        "Space Name": "Kitchen",
-        "Floor": 1,
-        "Unit No": "102"
-    },
-    {
-        "id": 7,
-        "Space Name": "Reception Area",
-        "Floor": 1,
-        "Unit No": "103"
-    },
-    {
-        "id": 8,
-        "Space Name": "Break Room",
-        "Floor": 2,
-        "Unit No": "201"
-    },
-    {
-        "id": 9,
-        "Space Name": "IT Room",
-        "Floor": 3,
-        "Unit No": "303"
-    },
-    {
-        "id": 10,
-        "Space Name": "Restroom",
-        "Floor": 1,
-        "Unit No": "104"
-    }
+    { "id": 1, "spaceName": "Office Space", "floor": 5, "unitNo": "501", "errorMessage": "No errors." },
+    { "id": 2, "spaceName": "Conference Room", "floor": 3, "unitNo": "302", "errorMessage": "Maintenance required." },
+    { "id": 3, "spaceName": "Meeting Room", "floor": 4, "unitNo": "403", "errorMessage": "Projector not working." },
+    { "id": 4, "spaceName": "Workspace", "floor": 2, "unitNo": "204", "errorMessage": "Low internet speed." },
+    { "id": 5, "spaceName": "Reception Area", "floor": 1, "unitNo": "101", "errorMessage": "No receptionist." },
+    { "id": 6, "spaceName": "Executive Office", "floor": 7, "unitNo": "702", "errorMessage": "Air conditioning issues." },
+    { "id": 7, "spaceName": "Break Room", "floor": 6, "unitNo": "601", "errorMessage": "Coffee machine broken." },
+    { "id": 8, "spaceName": "Private Office", "floor": 3, "unitNo": "305", "errorMessage": "Noise complaints." },
+    { "id": 9, "spaceName": "Training Room", "floor": 4, "unitNo": "404", "errorMessage": "Insufficient seating." },
+    { "id": 10, "spaceName": "Lobby", "floor": 1, "unitNo": "102", "errorMessage": "Lighting issues." },
+    { "id": 11, "spaceName": "Storage Room", "floor": 5, "unitNo": "505", "errorMessage": "Overcrowded." },
+    { "id": 12, "spaceName": "Server Room", "floor": 6, "unitNo": "602", "errorMessage": "Temperature too high." },
+    { "id": 13, "spaceName": "Cubicle Area", "floor": 2, "unitNo": "203", "errorMessage": "Insufficient power outlets." },
+    { "id": 14, "spaceName": "Print Room", "floor": 3, "unitNo": "303", "errorMessage": "Printer out of order." },
+    { "id": 15, "spaceName": "Co-working Space", "floor": 4, "unitNo": "405", "errorMessage": "Wi-Fi not available." },
+    { "id": 16, "spaceName": "Manager's Office", "floor": 7, "unitNo": "701", "errorMessage": "Phone line not working." },
+    { "id": 17, "spaceName": "Common Area", "floor": 1, "unitNo": "103", "errorMessage": "Furniture damage." },
+    { "id": 18, "spaceName": "Pantry", "floor": 2, "unitNo": "202", "errorMessage": "Microwave broken." },
+    { "id": 19, "spaceName": "Client Meeting Room", "floor": 5, "unitNo": "506", "errorMessage": "AV system malfunction." },
+    { "id": 20, "spaceName": "Tech Support Room", "floor": 6, "unitNo": "603", "errorMessage": "Lack of equipment." }
 ];
+
 
 export { BUILDINGDATADUMMY, SPACEDATADUMMY };

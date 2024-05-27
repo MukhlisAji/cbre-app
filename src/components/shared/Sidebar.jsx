@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../../lib/const/Navigation';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
-const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-teal hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
+const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-weldon-blue hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
 
 export default function DataEntrySidebar() {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 680);

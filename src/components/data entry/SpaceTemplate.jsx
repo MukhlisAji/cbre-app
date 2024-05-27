@@ -1,16 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { SPACEDATADUMMY, BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
+import { BUILDINGDATADUMMY, SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
-import { Listbox, Transition } from '@headlessui/react'
-import { IoCheckmarkOutline } from 'react-icons/io5';
-import { HiChevronUpDown } from 'react-icons/hi2';
-import Modal from 'react-modal'; // Import react-modal
 import { MdOutlineFileDownload, MdOutlineFileUpload } from 'react-icons/md';
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import ContainerTest from '../ContainterTest';
+import { Listbox, Transition } from '@headlessui/react';
+import { HiChevronUpDown } from 'react-icons/hi2';
+import { IoCheckmarkOutline } from 'react-icons/io5';
 
 export default function SpaceTemplate() {
     const [selected, setSelected] = useState(BUILDINGDATADUMMY[3])
@@ -21,6 +16,10 @@ export default function SpaceTemplate() {
     const [dragging, setDragging] = useState(false);
 
 
+
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ')
+    }
 
     const navigate = useNavigate();
     // const location = useLocation();
@@ -66,6 +65,13 @@ export default function SpaceTemplate() {
             value.toString().toLowerCase().includes(templateSearchTerm.toLowerCase())
         )
     );
+
+    const columns = [
+        { Header: 'Space Name', accessor: 'spaceName', width: 'w-28' },
+        { Header: 'Floor', accessor: 'floor', width: 'w-20' },
+        { Header: 'Unit No', accessor: 'unitNo', width: 'w-20' },
+    ];
+
 
     const handleBuildingSelect = (buildingId) => {
         setSelectedBuildings((prev) =>
@@ -131,26 +137,17 @@ export default function SpaceTemplate() {
         };
     }, []);
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [currentSpace, setCurrentSpace] = useState(null);
 
-    const handleEdit = (space) => {
-        setCurrentSpace(space);
-        setIsModalOpen(true);
-    };
+    const [templates, setTemplates] = useState(filteredTemplates);
 
-    const handleSave = (e) => {
-        e.preventDefault();
-        // Add logic to save the edited space details
-        // For now, we'll just close the modal
-        setIsModalOpen(false);
+    const handleSave = (updatedBuilding) => {
+        setTemplates(templates.map((building) =>
+            building.id === updatedBuilding.id ? updatedBuilding : building
+        ));
     };
 
     return (
         <div>
-            {/* <div className='bg-white border-b border-md p-6 py-3'>
-
-      </div> */}
             <div style={{ height: `${sectionHeight}px` }} className="flex-1 overflow-y-auto flex flex-col px-5 py-5 h-screen p-4 bg-white border-t border-neutral-200 border-sm">
 
                 <div className="bg-white shadow-md p-6 px-3 py-3 mb-5">
@@ -159,7 +156,7 @@ export default function SpaceTemplate() {
 
                         <div className=' px-3 py-3 items-centered flex flex-row gap-4 '>
 
-                            <div className='flex flex-col w-2/4'>
+                            <div className='flex flex-col w-3/5'>
                                 <h2 className="text-neutral-700 font-semibold text-md">Select Template</h2>
 
                                 <div className="mt-2 text-neutral-600 text-sm">
@@ -187,13 +184,13 @@ export default function SpaceTemplate() {
                                     </label>
                                 </div>
                             </div>
-                            <div className='flex flex-col w-2/4'>
+                            <div className='flex flex-col w-2/5'>
                                 <Listbox value={selected} onChange={setSelected}>
                                     {({ open }) => (
                                         <>
                                             <Listbox.Label className="block text-md font-semibold leading-6 text-neutral-700">Select Building</Listbox.Label>
                                             <div className="relative mt-2">
-                                                <Listbox.Button className="relative sm:w-full lg:w-1/2 cursor-pointer rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-sm text-neutral-700 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-c-teal hover:ring-1 hover:ring-c-teal">
+                                                <Listbox.Button className="relative sm:w-full lg:w-3/4 cursor-pointer rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-sm text-neutral-700 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-c-teal hover:ring-1 hover:ring-c-teal">
                                                     <span className="flex items-center">
                                                         <span className="ml-1 block truncate">{selected.buildingName}</span>
                                                     </span>
@@ -209,7 +206,7 @@ export default function SpaceTemplate() {
                                                     leaveFrom="opacity-100"
                                                     leaveTo="opacity-0"
                                                 >
-                                                    <Listbox.Options className="absolute z-10 mt-1 max-h-56 sm:w-full lg:w-1/2 overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                    <Listbox.Options className="absolute z-10 mt-1 max-h-56 sm:w-full lg:w-3/4 overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                                         {BUILDINGDATADUMMY.map((building) => (
                                                             <Listbox.Option
                                                                 key={building.id}
@@ -258,7 +255,7 @@ export default function SpaceTemplate() {
                     </div>
 
                     <div className='py-3 flex flex-row gap-4'>
-                        <div className="min-w-[16rem] my-4 bg-white w-full md:w-1/2">
+                        <div className="min-w-[16rem] my-4 bg-white w-full md:w-3/5">
                             <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">List of existing spaces (tier 1) for the selected building:</h2>
                             <div className="relative overflow-hidden rounded-sm border border-gray-300 shadow-sm">
                                 <div className="min-h-70 max-h-72 "> {/* Add max-height to make it scrollable */}
@@ -327,24 +324,36 @@ export default function SpaceTemplate() {
 
 
 
-                        <div className="flex flex-col pt-4 items-center justify-center text-center min-w-[16rem] w-full md:w-1/2">
-                            <div className="w-full min-w-[16rem] justify-start bg-white rounded-md border-2 border-sm border-gray-300 shadow-sm  
+                        <div className="flex flex-col pt-4 items-center justify-center text-center min-w-[16rem] w-full md:w-2/5">
+                            {/* <div className="w-full min-w-[16rem] justify-start bg-white rounded-md border-2 border-sm border-gray-300 shadow-sm  
                             overflow-hidden mx-4 my-5 md:my-5 cursor-pointer hover:border-c-teal 
                             transform transition-transform hover:scale-105">
-                                <div className="p-2" onClick={handleDownload}>
-                                    <div className="flex items-center justify-center">
-                                        <MdOutlineFileDownload fontSize={60} className="text-c-teal" />
-                                    </div>
-                                    <div className="text-center">
-                                        <span className="text-sm">Downlod selected template</span>
-                                        {/* <p className="text-sm text-gray-500">Description for downloading files</p> */}
+                <div className="p-2" onClick={handleDownload}>
+                  <div className="flex items-center justify-center">
+                    <MdOutlineFileDownload fontSize={60} className="text-c-teal" />
+                  </div>
+                  <div className="text-center">
+                    <span className="text-sm">Downlod selected template</span>
+                    {/* <p className="text-sm text-gray-500">Description for downloading files</p> */}
+                            {/* </div>
+                </div>
+              </div> */}
+
+                            <div className='flex flex-row justify-between w-full px-2 py-2 my-3'>
+                                <div className='w-full flex flex-row items-center'>
+                                    <div
+                                        className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-3 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
+                                        onClick={handleDownload}
+                                    >
+                                        <span>Download selected template</span>
+                                        <span><MdOutlineFileDownload fontSize={24} /></span>
                                     </div>
                                 </div>
                             </div>
 
                             <label
                                 htmlFor="file-upload"
-                                className={`flex flex-col bg-neutral-100 rounded-lg border-4 border-dashed w-full py-3 group text-center ${dragging ? 'border-blue-500' : ''}`}
+                                className={`flex flex-col bg-neutral-100 rounded-lg border-4 border-dashed w-full py-9 group text-center ${dragging ? 'border-blue-500' : ''}`}
                                 onDragOver={handleDragOver}
                                 onDragEnter={handleDragEnter}
                                 onDragLeave={handleDragLeave}
@@ -387,104 +396,23 @@ export default function SpaceTemplate() {
                             className="w-full px-10 py-1.5 text-sm font-thin rounded-lg border border-neutral-300 focus:outline-none focus:border-c-teal hover:border-c-teal"
                         />
                     </div>
-                    <div className="relative overflow-hidden rounded rounded-sm border border-gray-300 shadow-sm w-full">
-                        <table className="min-w-full">
-                            <thead className="bg-c-teal">
-                                <tr>
-                                    <th className="px-6 py-3 text-left font-semibold text-white sm:w-3/12 md:w-3/8 lg:w-3/8">Space Name</th>
-                                    <th className="px-6 py-3 text-left font-semibold text-white sm:w-2/12 md:w-2/8 lg:w-2/8">Floor</th>
-                                    <th className="px-4 py-3 text-left font-semibold text-white sm:w-2/12 md:w-2/8 lg:w-2/8">Unit No</th>
-                                    <th className="px-4 py-3 text-left font-semibold text-white sm:w-1/12 md:w-1/8 lg:w-1/8">Actions</th>
-                                </tr>
-                            </thead>
-                        </table>
-                        <div className="min-h-64 max-h-64 overflow-auto">
-                            <table className="min-w-full">
-                                <tbody className="bg-white">
-                                    {filteredTemplates.map((space, index) => (
-                                        <tr key={space.id} className={`${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
-                                            <td className="px-6 py-2 text-neutral-700 border sm:w-3/12 md:w-3/8 lg:w-3/8">{space['Space Name']}</td>
-                                            <td className="px-6 py-2 text-neutral-700 border sm:w-2/12 md:w-2/8 lg:w-2/8">{space.Floor}</td>
-                                            <td className="px-6 py-2 text-neutral-700 border sm:w-2/12 md:w-2/8 lg:w-2/8">{space['Unit No']}</td>
-                                            <td className="px-6 py-2 text-neutral-700 border sm:w-1/12 md:w-1/8 lg:w-1/8">
-                                                <button onClick={() => handleEdit(space)} className="text-blue-600 hover:underline">Edit</button>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
 
+                    <div className="h-96 overflow-auto shadow shadow-md">
+
+                        <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+
+                    </div>
 
 
 
                     <div className="flex justify-end">
                         <button
                             onClick={() => handleSubmit('/data-entry-portal/mass-upload/space/submit/error')}
-                            className="w-32 mx-2 py-2 mt-3 bg-gray-500 text-white hover:text-white hover:bg-c-teal focus:outline-none shadow-md rounded rounded-md"
+                            className="w-32 mx-2 py-2 mt-3 bg-c-teal text-white hover:text-white hover:bg-c-weldon-blue focus:outline-none shadow-md rounded rounded-md"
                         >
                             Submit
                         </button>
                     </div>
-
-                    <Modal
-                        isOpen={isModalOpen}
-                        onRequestClose={() => setIsModalOpen(false)}
-                        contentLabel="Edit Space"
-                        className="fixed inset-0 z-50 flex items-center justify-center"
-                        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
-                    >
-                        <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full p-6">
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4">Edit Space</h2>
-                            {currentSpace && (
-                                <form onSubmit={handleSave} className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700">Space Name</label>
-                                        <input
-                                            type="text"
-                                            value={currentSpace['Space Name']}
-                                            onChange={(e) => setCurrentSpace({ ...currentSpace, 'Space Name': e.target.value })}
-                                            className="px-2.5 py-1 mt-1 block w-full rounded-md border border-sm focus:outline-none focus:ring-1 focus:ring-c-teal hover:ring-1 hover:ring-c-teal text-neutral-700 font-normal transition duration-150 ease-in-out"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700">Floor</label>
-                                        <input
-                                            type="text"
-                                            value={currentSpace.Floor}
-                                            onChange={(e) => setCurrentSpace({ ...currentSpace, Floor: e.target.value })}
-                                            className="px-2.5 py-1 mt-1 block w-full rounded-md border border-sm focus:outline-none focus:ring-1 focus:ring-c-teal hover:ring-1 hover:ring-c-teal text-neutral-700 font-normal transition duration-150 ease-in-out"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700">Unit No</label>
-                                        <input
-                                            type="text"
-                                            value={currentSpace['Unit No']}
-                                            onChange={(e) => setCurrentSpace({ ...currentSpace, 'Unit No': e.target.value })}
-                                            className="px-2.5 py-1 mt-1 block w-full rounded-md border border-sm focus:outline-none focus:ring-1 focus:ring-c-teal hover:ring-1 hover:ring-c-teal text-neutral-700 font-normal transition duration-150 ease-in-out"
-                                        />
-                                    </div>
-                                    <div className="flex justify-end space-x-2">
-                                        <button
-                                            type="button"
-                                            onClick={() => setIsModalOpen(false)}
-                                            className="w-[90px] bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-                                        >
-                                            Cancel
-                                        </button>
-                                        <button
-                                            type="submit"
-                                            className="w-[90px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                        >
-                                            Save
-                                        </button>
-                                    </div>
-                                </form>
-                            )}
-                        </div>
-                    </Modal>
 
                 </div>
 
