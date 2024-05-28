@@ -258,7 +258,7 @@ export default function LeaseTemplate() {
                         <div className="min-w-[16rem] my-4 bg-white w-full md:w-3/5">
                             <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">List of existing spaces (tier 1) for the selected building:</h2>
                             <div className="relative overflow-hidden rounded-sm border border-gray-300 shadow-sm">
-                                <div className="min-h-70 max-h-72 "> {/* Add max-height to make it scrollable */}
+                                <div className="min-h-70 max-h-72 ">
                                     <table className="w-full">
                                         <thead className="text-white w-full">
                                             <tr className="flex w-full bg-c-teal">

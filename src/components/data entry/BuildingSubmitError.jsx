@@ -3,15 +3,20 @@ import ContainerTest from '../ContainterTest'
 import { BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineErrorOutline } from 'react-icons/md';
+import { useAppContext } from '../../AppContext';
+
 
 
 
 export default function BuildingSubmitError() {
     const [templateSearchTerm, setTemplateSearchTerm] = useState('');
     const [showModal, setShowModal] = useState(true); // Show modal on page load
+    const {setIsDirty} = useAppContext();
 
-
-    const handleTemplateSearchChange = (event) => setTemplateSearchTerm(event.target.value);
+    const handleTemplateSearchChange = (event) => {
+        setTemplateSearchTerm(event.target.value);
+        setIsDirty(true); // Set dirty flag when changes are made
+    };
 
     const closeModal = () => {
         setShowModal(false);
@@ -19,10 +24,16 @@ export default function BuildingSubmitError() {
 
     const navigate = useNavigate();
     const handleSubmit = (path) => {
+        // Check if there are unsaved changes before navigating
+        // if (isDirty) {
+        //     // Show confirmation dialog or handle accordingly
+        //     const confirmNavigation = window.confirm('You have unsaved changes. Are you sure you want to navigate away?');
+        //     if (!confirmNavigation) {
+        //         return; // Don't navigate if user cancels
+        //     }
+        // }
         navigate(path);
     };
-
-
 
     const filteredTemplates = BUILDINGDATADUMMY.filter((item) =>
         Object.values(item).some((value) =>

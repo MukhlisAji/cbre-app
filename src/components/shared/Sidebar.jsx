@@ -35,7 +35,7 @@ export default function DataEntrySidebar() {
       <div className="flex flex-col items-center px-1">
         <a href="/" className="flex flex-col cursor-pointer focus:outline-none hover:no-underline">
           <div className="flex gap-2">
-            <span className="text-c-dark-grayish font-logo text-7xl font-semibold">one</span>
+            <span className={`text-c-dark-grayish font-logo ${isOpen ? 'text-7xl' : 'text-4xl'} font-semibold`}>one</span>
           </div>
           <span className="text-xs text-c-dark-grayish ml-auto">by CBRE</span>
         </a>

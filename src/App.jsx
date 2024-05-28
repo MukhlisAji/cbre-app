@@ -23,6 +23,7 @@ import LeaseSubmit from "./components/data entry/LeaseSubmit";
 import ClientSubmitError from "./components/data entry/ClientSubmitError";
 import ClientSubmit from "./components/data entry/ClientSubmit";
 import Modal from 'react-modal';
+import { AppProvider } from "./AppContext";
 
 
 Modal.setAppElement('#root');
@@ -30,41 +31,43 @@ Modal.setAppElement('#root');
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/" element={<Layout />}>
-          <Route index path="home" element={<Dashboard />} />
-          <Route path="property-search" element={<PropertySearch />} />
-          <Route path="data-entry-portal/property-database" element={<PropertyDatabase />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-        <Route path="data-entry-portal/mass-upload/*" element={<DataEntryLayout />}>
-          <Route path="building" element={<BuildingMassUpload />} />
-          <Route path="building/template" element={<BuildingTemplate />} />
-          <Route path="building/submit/error" element={<BuildingSubmitError />} />
-          <Route path="building/submit" element={<BuildingSubmit />} />
+    <AppProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/" element={<Layout />}>
+            <Route index path="home" element={<Dashboard />} />
+            <Route path="property-search" element={<PropertySearch />} />
+            <Route path="data-entry-portal/property-database" element={<PropertyDatabase />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="data-entry-portal/mass-upload/*" element={<DataEntryLayout />}>
+            <Route path="building" element={<BuildingMassUpload />} />
+            <Route path="building/template" element={<BuildingTemplate />} />
+            <Route path="building/submit/error" element={<BuildingSubmitError />} />
+            <Route path="building/submit" element={<BuildingSubmit />} />
 
-          <Route path="space" element={<SpaceMassUpload />} />
-          <Route path="space/template" element={<SpaceTemplate />} />
-          <Route path="space/submit/error" element={<SpaceSubmitError />} />
-          <Route path="space/submit" element={<SpaceSubmit />} />
+            <Route path="space" element={<SpaceMassUpload />} />
+            <Route path="space/template" element={<SpaceTemplate />} />
+            <Route path="space/submit/error" element={<SpaceSubmitError />} />
+            <Route path="space/submit" element={<SpaceSubmit />} />
 
-          <Route path="lease" element={<LeaseMassUpload />} />
-          <Route path="lease/template" element={<LeaseTemplate />} />
-          <Route path="lease/submit/error" element={<LeaseSubmitError />} />
-          <Route path="lease/submit" element={<LeaseSubmit />} />
+            <Route path="lease" element={<LeaseMassUpload />} />
+            <Route path="lease/template" element={<LeaseTemplate />} />
+            <Route path="lease/submit/error" element={<LeaseSubmitError />} />
+            <Route path="lease/submit" element={<LeaseSubmit />} />
 
-          <Route path="client" element={<ClientMassUpload />} />
-          <Route path="client/template" element={<ClientTemplate />} />
-          <Route path="client/submit/error" element={<ClientSubmitError />} />
-          <Route path="client/submit" element={<ClientSubmit />} />
+            <Route path="client" element={<ClientMassUpload />} />
+            <Route path="client/template" element={<ClientTemplate />} />
+            <Route path="client/submit/error" element={<ClientSubmitError />} />
+            <Route path="client/submit" element={<ClientSubmit />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Route>
-        <Route path="/test" element={<ContainterTest />} />
-      </Routes>
-    </Router>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="/test" element={<ContainterTest />} />
+        </Routes>
+      </Router>
+    </AppProvider>
 
   );
 }

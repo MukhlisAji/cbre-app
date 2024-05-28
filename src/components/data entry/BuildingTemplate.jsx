@@ -327,38 +327,6 @@ export default function BuildingTemplate() {
           </div>
 
           <div className="h-96 overflow-auto shadow shadow-md">
-            {/* <table className="w-full border-collapse  bg-white text-left text-sm text-gray-500">
-              <thead className="bg-c-teal text-white sticky top-0">
-                <tr>
-                  <th scope="col" className="px-6 py-4 font-medium ">Name</th>
-                  <th scope="col" className="px-6 py-4 font-medium ">State</th>
-                  <th scope="col" className="px-6 py-4 font-medium ">Role</th>
-                  <th scope="col" className="px-6 py-4 font-medium ">Team</th>
-                  <th scope="col" className="px-6 py-4 font-medium "></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-                {filteredTemplates.map((building, index) => (
-                  <tr key={building.id} className={`${index % 2 === 0 ? 'bg-gray-100' : ''} hover:bg-gray-50`}>
-                    <td className="px-6 py-4">{building.buildingName}</td>
-                    <td className="px-6 py-4">{building.postalCode}</td>
-                    <td className="px-6 py-4">{building.buildingOwner}</td>
-                    <td className="px-6 py-4">{building.landAreaRemark}</td>
-                    <td className="px-6 py-4">
-                      <div className="flex justify-end gap-4">
-                        <span >
-                          <IoTrashOutline fontSize={18} color='red' />
-                        </span>
-                        <span onClick={() => handleEdit(building)} className='cursor-pointer'>
-                          <MdOutlineModeEdit fontSize={20} className='text-yellow-500' />
-                        </span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table> */}
-            {/* </div> */}
             <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
           </div>
