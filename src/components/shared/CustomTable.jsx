@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { IoTrashOutline, IoCheckmark } from 'react-icons/io5';
 import { MdOutlineModeEdit } from 'react-icons/md';
-import { useAppContext } from '../AppContext';
+import { useAppContext } from '../../AppContext';
 
 
-const ContainerTest = ({ columns, filteredTemplates, handleSave }) => {
+const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
   const [editingRowId, setEditingRowId] = useState(null);
   const [editValues, setEditValues] = useState({});
   const {setIsDirty} = useAppContext();
@@ -105,4 +105,4 @@ const ContainerTest = ({ columns, filteredTemplates, handleSave }) => {
   );
 };
 
-export default ContainerTest;
+export default CustomTable;

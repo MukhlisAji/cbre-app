@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { BUILDINGDATADUMMY, SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
+import { BUILDINGDATADUMMY, SPACEDATADUMMY, LEASEDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineFileDownload, MdOutlineFileUpload } from 'react-icons/md';
-import ContainerTest from '../ContainterTest';
+import CustomTable from '../shared/CustomTable';
 import { Listbox, Transition } from '@headlessui/react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import { IoCheckmarkOutline } from 'react-icons/io5';
@@ -61,6 +61,12 @@ export default function LeaseTemplate() {
 
 
     const filteredTemplates = SPACEDATADUMMY.filter((item) =>
+        Object.values(item).some((value) =>
+            value.toString().toLowerCase().includes(templateSearchTerm.toLowerCase())
+        )
+    );
+
+    const filteredLease = LEASEDATADUMMY.filter((item) =>
         Object.values(item).some((value) =>
             value.toString().toLowerCase().includes(templateSearchTerm.toLowerCase())
         )
@@ -255,6 +261,191 @@ export default function LeaseTemplate() {
                     </div>
 
                     <div className='py-3 flex flex-row gap-4'>
+                        <div className="min-w-[16rem] my-4 bg-white w-2/6">
+                            <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">Select the space(s) for the selected building:</h2>
+                            <div className="relative rounded-sm border border-gray-300 shadow-sm text-sm">
+                                <body className="flex w-full h-96">
+                                    <div className="flex flex-col w-full">
+                                        {/* Table Headers */}
+                                        <div className="flex bg-c-teal text-white">
+                                            <div className="flex items-center justify-start w-1/12 h-10 px-2.5">
+                                            </div>
+                                            <div className="flex items-center justify-start w-5/12 h-10 px-2.5">
+                                                <span>Building</span>
+                                            </div>
+                                            <div className="flex items-center justify-start w-3/12 h-10 px-2.5">
+                                                <span>Floor</span>
+                                            </div>
+                                            <div className="flex items-center justify-start w-3/12 h-10 px-2.5">
+                                                <span>Space</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Search and Select All */}
+                                        <div className="flex bg-white">
+                                            <div className="flex items-center justify-center w-1/12 h-10 px-2.5 relative">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedBuildings.length === filteredTemplates.length}
+                                                    onChange={handleSelectAll}
+                                                    className="form-checkbox h-4 w-4 text-c-teal checked:bg-c-teal absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                                                />
+                                            </div>
+                                            <div className="flex items-center justify-start w-11/12 h-10 px-2.5">
+                                                <div className="relative w-full">
+                                                    <label htmlFor="table-search" className="sr-only">Search building...</label>
+                                                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                                        <svg className="w-4 h-4 text-neutral-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        id="table-search"
+                                                        placeholder="Search..."
+                                                        value={buildingSearchTerm}
+                                                        onChange={handleBuildingSearchChange}
+                                                        className="w-full pl-10 py-1.5 h-full border border-neutral-300 rounded-md text-sm text-neutral-700 focus:outline-none focus:ring-c-teal focus:border-c-teal"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Table Body */}
+                                        <div className="overflow-auto flex-grow">
+                                            {filteredTemplates.map((building, index) => (
+                                                <div key={index} className={`flex ${index % 2 === 0 ? 'bg-gray-100' : ''} hover:bg-gray-200`}>
+                                                    <div className="flex items-center justify-center w-1/12 h-10 px-2.5 relative">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={selectedBuildings.includes(building.id)}
+                                                            onChange={() => handleBuildingSelect(building.id)}
+                                                            className="form-checkbox h-4 w-4 text-c-teal checked:bg-c-teal absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                                                        />
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-5/12 h-10 px-2.5 text-neutral-600">
+                                                        <span>{building.spaceName}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-3/12 h-10 px-2.5 text-neutral-600">
+                                                        <span>{building.floor}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-3/12 h-10 px-2.5 text-neutral-600">
+                                                        <span className='pl-2'>{building.unitNo}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </body>
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div className="min-w-[16rem] my-4 bg-white w-4/6">
+                            <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">List of existing spaces (tier 1) for the selected building:</h2>
+                            <div className="relative rounded-sm border border-gray-300 shadow-sm text-sm">
+                                <body className="flex w-full h-96">
+                                    <div className="flex flex-col w-full">
+                                        {/* Table Headers */}
+                                        <div className="flex bg-c-teal text-white">
+                                            <div className="flex items-center justify-start w-1/12 h-10 px-2.5">
+                                            </div>
+                                            <div className="flex items-center justify-start w-3/12 h-10 px-2.5">
+                                                <span>Lease Title</span>
+                                            </div>
+                                            <div className="flex items-center justify-start w-3/12 h-10 px-2.5">
+                                                <span>Account Name</span>
+                                            </div>
+                                            <div className="flex items-center justify-start w-2/12 h-10 px-2.5">
+                                                <span>Lease Start</span>
+                                            </div>
+                                            <div className="flex items-center justify-start w-2/12 h-10 px-2.5">
+                                                <span>Lease End</span>
+                                            </div>
+                                            <div className="flex items-center justify-start w-2/12 h-10 px-2.5">
+                                                <span>Lease Status</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Search and Select All */}
+                                        <div className="flex bg-white">
+                                            <div className="flex items-center justify-center w-1/12 h-10 px-2.5 relative">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedBuildings.length === filteredTemplates.length}
+                                                    onChange={handleSelectAll}
+                                                    className="form-checkbox h-4 w-4 text-c-teal checked:bg-c-teal absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                                                />
+                                            </div>
+                                            <div className="flex items-center justify-start w-11/12 h-10 px-2.5">
+                                                <div className="relative w-full">
+                                                    <label htmlFor="table-search" className="sr-only">Search building...</label>
+                                                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                                        <svg className="w-4 h-4 text-neutral-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        id="table-search"
+                                                        placeholder="Search..."
+                                                        value={buildingSearchTerm}
+                                                        onChange={handleBuildingSearchChange}
+                                                        className="w-full pl-10 py-1.5 h-full border border-neutral-300 rounded-md text-sm text-neutral-700 focus:outline-none focus:ring-c-teal focus:border-c-teal"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Table Body */}
+                                        <div className="overflow-auto flex-grow text-sm">
+                                            {filteredLease.map((lease, index) => (
+                                                <div key={index} className={`flex ${index % 2 === 0 ? 'bg-gray-100' : ''} hover:bg-gray-200`}>
+                                                    <div className="flex items-center justify-center w-1/12 h-10 px-2.5 relative">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={selectedBuildings.includes(lease.id)}
+                                                            onChange={() => handleBuildingSelect(lease.id)}
+                                                            className="form-checkbox h-4 w-4 ml-0.5 text-c-teal checked:bg-c-teal absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                                                        />
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-3/12 h-10 px-2.5 text-neutral-600">
+                                                        <span className='pl-1'>{lease.leaseTitle}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-3/12 h-10 px-2.5 text-neutral-600">
+                                                        <span>{lease.accountName}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-2/12 h-10 px-2.5 text-neutral-600">
+                                                        <span>{lease.leaseStart}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-2/12 h-10 px-2.5 text-neutral-600">
+                                                        <span className='pl-1'>{lease.leaseEnd}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start w-2/12 h-10 px-2.5 text-neutral-600">
+                                                        <span className='text-red-500 pl-2'>{lease.leaseStatus}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </body>
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div className='py-3 flex flex-row gap-4'>
                         <div className="min-w-[16rem] my-4 bg-white w-full md:w-3/5">
                             <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">List of existing spaces (tier 1) for the selected building:</h2>
                             <div className="relative overflow-hidden rounded-sm border border-gray-300 shadow-sm">
@@ -321,28 +512,12 @@ export default function LeaseTemplate() {
                         </div>
 
 
-
-
-
                         <div className="flex flex-col pt-4 items-center justify-center text-center min-w-[16rem] w-full md:w-2/5">
-                            {/* <div className="w-full min-w-[16rem] justify-start bg-white rounded-md border-2 border-sm border-gray-300 shadow-sm  
-                            overflow-hidden mx-4 my-5 md:my-5 cursor-pointer hover:border-c-teal 
-                            transform transition-transform hover:scale-105">
-                <div className="p-2" onClick={handleDownload}>
-                  <div className="flex items-center justify-center">
-                    <MdOutlineFileDownload fontSize={60} className="text-c-teal" />
-                  </div>
-                  <div className="text-center">
-                    <span className="text-sm">Downlod selected template</span>
-                    {/* <p className="text-sm text-gray-500">Description for downloading files</p> */}
-                            {/* </div>
-                </div>
-              </div> */}
 
                             <div className='flex flex-row justify-between w-full px-2 py-2 my-3'>
                                 <div className='w-full flex flex-row items-center'>
                                     <div
-                                        className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-3 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
+                                        className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-2 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
                                         onClick={handleDownload}
                                     >
                                         <span>Download selected template</span>
@@ -399,7 +574,7 @@ export default function LeaseTemplate() {
 
                     <div className="h-96 overflow-auto shadow shadow-md">
 
-                        <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+                        <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
                     </div>
 

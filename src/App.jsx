@@ -7,7 +7,6 @@ import DataEntryLayout from "./components/shared/DataEntryLayout";
 import BuildingMassUpload from "./components/data entry/BuildingMassUpload";
 import BuildingTemplate from "./components/data entry/BuildingTemplate";
 import PropertyDatabase from "./components/PropertyDatabase";
-import ContainterTest from "./components/ContainterTest";
 import BuildingSubmit from "./components/data entry/BuildingSubmit";
 import BuildingSubmitError from "./components/data entry/BuildingSubmitError";
 import SpaceMassUpload from "./components/data entry/SpaceMassUpload";
@@ -24,6 +23,7 @@ import ClientSubmitError from "./components/data entry/ClientSubmitError";
 import ClientSubmit from "./components/data entry/ClientSubmit";
 import Modal from 'react-modal';
 import { AppProvider } from "./AppContext";
+import DataEntry from "./components/data entry/DataEntry";
 
 
 Modal.setAppElement('#root');
@@ -42,6 +42,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="data-entry-portal/mass-upload/*" element={<DataEntryLayout />}>
+            <Route path="" element={<DataEntry />} />
             <Route path="building" element={<BuildingMassUpload />} />
             <Route path="building/template" element={<BuildingTemplate />} />
             <Route path="building/submit/error" element={<BuildingSubmitError />} />
@@ -64,7 +65,6 @@ function App() {
 
             <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="/test" element={<ContainterTest />} />
         </Routes>
       </Router>
     </AppProvider>

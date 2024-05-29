@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { BUILDINGDATADUMMY, SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineFileDownload, MdOutlineFileUpload } from 'react-icons/md';
-import ContainerTest from '../ContainterTest';
+import CustomTable from '../shared/CustomTable';
 import { Listbox, Transition } from '@headlessui/react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import { IoCheckmarkOutline } from 'react-icons/io5';
@@ -399,7 +399,7 @@ export default function ClientTemplate() {
 
                     <div className="h-96 overflow-auto shadow shadow-md">
 
-                        <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+                        <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
                     </div>
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import ContainerTest from '../ContainterTest'
+import CustomTable from '../shared/CustomTable'
 import { SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { IoCheckmark, IoClose } from 'react-icons/io5';
-import { MdCheck} from 'react-icons/md';
+import { MdCheck } from 'react-icons/md';
 
 
 
@@ -82,7 +82,7 @@ export default function LeaseSubmit() {
                             </div>
                             <h2 className="text-lg font-semibold text-gray-800 mb-2">Data Successfully Submitted!</h2>
                             <p className="text-sm text-gray-700">
-                            Would you like to submit another data entry?
+                                Would you like to add or update lease data?
                             </p>
                         </div>
                         <div className="flex justify-center space-x-4 mt-4">
@@ -128,7 +128,7 @@ export default function LeaseSubmit() {
                     />
                 </div>
                 <div style={{ height: `${sectionHeight}px` }} className="overflow-auto shadow shadow-md rounded rounded-sm">
-                    <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+                    <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
                 </div>
                 <div className="flex justify-end">

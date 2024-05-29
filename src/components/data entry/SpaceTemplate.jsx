@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { BUILDINGDATADUMMY, SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineFileDownload, MdOutlineFileUpload } from 'react-icons/md';
-import ContainerTest from '../ContainterTest';
+import CustomTable from '../shared/CustomTable';
 import { Listbox, Transition } from '@headlessui/react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import { IoCheckmarkOutline } from 'react-icons/io5';
@@ -325,24 +325,11 @@ export default function SpaceTemplate() {
 
 
                         <div className="flex flex-col pt-4 items-center justify-center text-center min-w-[16rem] w-full md:w-2/5">
-                            {/* <div className="w-full min-w-[16rem] justify-start bg-white rounded-md border-2 border-sm border-gray-300 shadow-sm  
-                            overflow-hidden mx-4 my-5 md:my-5 cursor-pointer hover:border-c-teal 
-                            transform transition-transform hover:scale-105">
-                <div className="p-2" onClick={handleDownload}>
-                  <div className="flex items-center justify-center">
-                    <MdOutlineFileDownload fontSize={60} className="text-c-teal" />
-                  </div>
-                  <div className="text-center">
-                    <span className="text-sm">Downlod selected template</span>
-                    {/* <p className="text-sm text-gray-500">Description for downloading files</p> */}
-                            {/* </div>
-                </div>
-              </div> */}
-
+                            
                             <div className='flex flex-row justify-between w-full px-2 py-2 my-3'>
                                 <div className='w-full flex flex-row items-center'>
                                     <div
-                                        className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-3 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
+                                        className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-2 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
                                         onClick={handleDownload}
                                     >
                                         <span>Download selected template</span>
@@ -399,7 +386,7 @@ export default function SpaceTemplate() {
 
                     <div className="h-96 overflow-auto shadow shadow-md">
 
-                        <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+                        <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
                     </div>
 

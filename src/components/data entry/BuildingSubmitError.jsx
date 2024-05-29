@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ContainerTest from '../ContainterTest'
+import CustomTable from '../shared/CustomTable'
 import { BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineErrorOutline } from 'react-icons/md';
@@ -128,7 +128,7 @@ export default function BuildingSubmitError() {
                     />
                 </div>
                 <div style={{ height: `${sectionHeight}px` }} className="overflow-auto shadow shadow-md rounded rounded-sm">
-                    <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+                    <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
                 </div>
                 <div className="flex justify-end">

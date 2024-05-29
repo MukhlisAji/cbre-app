@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BUILDINGDATADUMMY } from '../../lib/const/DataEntryDummy';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { MdOutlineFileDownload, MdOutlineFileUpload } from 'react-icons/md';
-import ContainerTest from '../ContainterTest';
+import CustomTable from '../shared/CustomTable';
 
 export default function BuildingTemplate() {
   const [selectedTemplate, setSelectedTemplate] = useState('mandatory');
@@ -10,6 +10,10 @@ export default function BuildingTemplate() {
   const [buildingSearchTerm, setBuildingSearchTerm] = useState('');
   const [templateSearchTerm, setTemplateSearchTerm] = useState('');
   const [dragging, setDragging] = useState(false);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const action = queryParams.get('action');
+  const isUpdating = action === 'update';
 
 
 
@@ -148,7 +152,7 @@ export default function BuildingTemplate() {
 
         <div className="bg-white shadow-md p-6 px-3 py-3 mb-5">
 
-          <div className="mt-2 text-c-dark-grayish text-md bg-neutral-100 rounded rounded-md">
+          <div className={`mt-2 text-c-dark-grayish text-md bg-neutral-100 rounded rounded-md ${isUpdating ? 'w-full': 'w-1/3 px-2'}`}>
 
             <div className=' px-3 py-3 items-centered flex flex-row gap-4 '>
 
@@ -180,105 +184,114 @@ export default function BuildingTemplate() {
                   </label>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className='py-3 flex flex-row gap-4'>
-            <div className="min-w-[16rem] my-4 bg-white w-full md:w-3/5">
-              <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">Select Building:</h2>
-              <div className="relative overflow-hidden rounded-sm border border-gray-300 shadow-sm">
-                <div className="min-h-70 max-h-72 "> {/* Add max-height to make it scrollable */}
-                  <table className="w-full">
-                    <thead className="text-white w-full">
-                      <tr className="flex w-full bg-c-teal">
-                        <th className="mx-1.5 py-3 px-2.5 w-1/8"></th>
-                        <th className="w-7/8">Building Name</th>
-                      </tr>
-                      <tr className="flex w-full bg-white">
-                        <th className="mx-2 py-0 px-2.5 w-1/8 relative">
-                          <input
-                            type="checkbox"
-                            checked={selectedBuildings.length === filteredBuildings.length}
-                            onChange={() => handleSelectAll()}
-                            className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal border absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                          />
-                        </th>
-
-                        <th className="w-full py-1 px-2 ">
-                          <div className="relative h-full ">
-                            <label htmlFor="table-search" className="sr-only">Search building...</label>
-                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                              <svg className="w-4 h-4 text-neutral-700 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                              </svg>
-                            </div>
-                            <input
-                              type="text"
-                              id="table-search"
-                              placeholder="Search..."
-                              value={buildingSearchTerm}
-                              onChange={handleBuildingSearchChange}
-                              className="w-full pl-10 py-1.5 h-full border border-neutral-300 rounded rounded-md text-sm text-neutral-700 font-thin focus:outline-none focus:ring-c-teal focus:border-c-teal hover:border-c-teal"
-                            />
-                          </div>
-                        </th>
-                      </tr>
-                    </thead>
-
-                    <tbody className="bg-grey-light flex flex-col items-center overflow-y-scroll w-full" style={{ height: "200px" }}>
-                      {filteredBuildings.map((building, index) => (
-                        <tr key={building.id} className={`flex w-full hover:bg-gray-200 ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
-                          <td className="mx-2 w-1/8 relative">
-                            <input
-                              type="checkbox"
-                              checked={selectedBuildings.includes(building.id)}
-                              onChange={() => handleBuildingSelect(building.id)}
-                              className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                            />
-                          </td>
-                          <td className="w-7/8 text-neutral-600">{building.name}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-
-
-
-                </div>
-              </div>
 
             </div>
-
-
-
-
-
-            <div className="flex flex-col pt-4 items-center justify-center text-center min-w-[16rem] w-full md:w-2/5">
-              {/* <div className="w-full min-w-[16rem] justify-start bg-white rounded-md border-2 border-sm border-gray-300 shadow-sm  
-                            overflow-hidden mx-4 my-5 md:my-5 cursor-pointer hover:border-c-teal 
-                            transform transition-transform hover:scale-105">
-                <div className="p-2" onClick={handleDownload}>
-                  <div className="flex items-center justify-center">
-                    <MdOutlineFileDownload fontSize={60} className="text-c-teal" />
-                  </div>
-                  <div className="text-center">
-                    <span className="text-sm">Downlod selected template</span>
-                    {/* <p className="text-sm text-gray-500">Description for downloading files</p> */}
-              {/* </div>
-                </div>
-              </div> */}
-
-              <div className='flex flex-row justify-between w-full px-2 py-2 my-3'>
-                <div className='w-full flex flex-row items-center'>
+            {(!isUpdating &&
+              <div className='flex flex-row justify-between w-full px-2 '>
+                <div className='w-full flex flex-row items-center justify-between mb-3'>
                   <div
-                    className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-3 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
+                    className='flex flex-row items-center justify-between px-1  w-full'
+
+                  >Download selected template</div>
+
+                  <div
+                    className='flex flex-row items-center px-4  justify-between w-auto border border-1 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white hover:bg-c-teal bg-white py-1 font-semibold transform transition-transform hover:scale-105'
                     onClick={handleDownload}
                   >
-                    <span>Download selected template</span>
+                    {/* <span>Download selected template</span> */}
                     <span><MdOutlineFileDownload fontSize={24} /></span>
                   </div>
                 </div>
               </div>
+            )}
+          </div>
+
+          <div className='py-3 flex flex-row gap-4'>
+            {isUpdating && (
+              <div className="min-w-[16rem] my-4 bg-white w-full md:w-3/5">
+                <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">Select Building:</h2>
+                <div className="relative overflow-hidden rounded-sm border border-gray-300 shadow-sm">
+                  <div className="min-h-70 max-h-72 "> {/* Add max-height to make it scrollable */}
+                    <table className="w-full">
+                      <thead className="text-white w-full">
+                        <tr className="flex w-full bg-c-teal">
+                          <th className="mx-1.5 py-3 px-2.5 w-1/8"></th>
+                          <th className="w-7/8">Building Name</th>
+                        </tr>
+                        <tr className="flex w-full bg-white">
+                          <th className="mx-2 py-0 px-2.5 w-1/8 relative">
+                            <input
+                              type="checkbox"
+                              checked={selectedBuildings.length === filteredBuildings.length}
+                              onChange={() => handleSelectAll()}
+                              className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal border absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                            />
+                          </th>
+
+                          <th className="w-full py-1 px-2 ">
+                            <div className="relative h-full ">
+                              <label htmlFor="table-search" className="sr-only">Search building...</label>
+                              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg className="w-4 h-4 text-neutral-700 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                              </div>
+                              <input
+                                type="text"
+                                id="table-search"
+                                placeholder="Search..."
+                                value={buildingSearchTerm}
+                                onChange={handleBuildingSearchChange}
+                                className="w-full pl-10 py-1.5 h-full border border-neutral-300 rounded rounded-md text-sm text-neutral-700 font-thin focus:outline-none focus:ring-c-teal focus:border-c-teal hover:border-c-teal"
+                              />
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody className="bg-grey-light flex flex-col items-center overflow-y-scroll w-full" style={{ height: "200px" }}>
+                        {filteredBuildings.map((building, index) => (
+                          <tr key={building.id} className={`flex w-full hover:bg-gray-200 ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
+                            <td className="mx-2 w-1/8 relative">
+                              <input
+                                type="checkbox"
+                                checked={selectedBuildings.includes(building.id)}
+                                onChange={() => handleBuildingSelect(building.id)}
+                                className="form-checkbox h-3 w-3 text-c-teal checked:bg-c-teal absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                              />
+                            </td>
+                            <td className="w-7/8 text-neutral-600">{building.name}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+
+
+
+                  </div>
+                </div>
+
+              </div>)}
+
+
+
+
+
+            <div className={`flex flex-col pt-4 items-center justify-center text-center min-w-[16rem] ${!isUpdating ? 'w-full' : 'w-full md:w-2/5'} `}>
+
+              {(isUpdating &&
+                <div className='flex flex-row justify-between w-full px-2 py-2 my-3'>
+                  <div className='w-full flex flex-row items-center'>
+                    <div
+                      className='flex flex-row items-center px-4 justify-between hover:bg-c-teal px-2 py-2 w-full border border-2 border-c-teal cursor-pointer rounded rounded-full text-neutral-700 hover:text-white font-semibold transform transition-transform hover:scale-105'
+                      onClick={handleDownload}
+                    >
+                      <span>Download selected template</span>
+                      <span><MdOutlineFileDownload fontSize={24} /></span>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <label
                 htmlFor="file-upload"
@@ -327,7 +340,7 @@ export default function BuildingTemplate() {
           </div>
 
           <div className="h-96 overflow-auto shadow shadow-md">
-            <ContainerTest columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+            <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
           </div>
 

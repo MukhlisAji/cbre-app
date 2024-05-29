@@ -425,5 +425,88 @@ const SPACEDATADUMMY = [
     { "id": 20, "spaceName": "Tech Support Room", "floor": 6, "unitNo": "603", "errorMessage": "Lack of equipment." }
 ];
 
+const LEASEDATADUMMY = [
+    {
+        "id": "1",
+        "leaseTitle": "Lease Agreement A",
+        "accountName": "Company Alpha",
+        "leaseStart": "2023-01-01",
+        "leaseEnd": "2024-01-01",
+        "leaseStatus": "Active"
+    },
+    {
+        "id": "2",
+        "leaseTitle": "Lease Agreement B",
+        "accountName": "Company Beta",
+        "leaseStart": "2022-06-15",
+        "leaseEnd": "2023-06-14",
+        "leaseStatus": "Expired"
+    },
+    {
+        "id": "3",
+        "leaseTitle": "Lease Agreement C",
+        "accountName": "Company Gamma",
+        "leaseStart": "2023-03-01",
+        "leaseEnd": "2024-03-01",
+        "leaseStatus": "Active"
+    },
+    {
+        "id": "4",
+        "leaseTitle": "Lease Agreement D",
+        "accountName": "Company Delta",
+        "leaseStart": "2022-09-10",
+        "leaseEnd": "2023-09-09",
+        "leaseStatus": "Expired"
+    },
+    {
+        "id": "5",
+        "leaseTitle": "Lease Agreement E",
+        "accountName": "Company Epsilon",
+        "leaseStart": "2023-05-20",
+        "leaseEnd": "2024-05-20",
+        "leaseStatus": "Active"
+    },
+    {
+        "id": "6",
+        "leaseTitle": "Lease Agreement F",
+        "accountName": "Company Zeta",
+        "leaseStart": "2022-12-01",
+        "leaseEnd": "2023-12-01",
+        "leaseStatus": "Expired"
+    },
+    {
+        "id": "7",
+        "leaseTitle": "Lease Agreement G",
+        "accountName": "Company Eta",
+        "leaseStart": "2023-07-15",
+        "leaseEnd": "2024-07-15",
+        "leaseStatus": "Active"
+    },
+    {
+        "id": "8",
+        "leaseTitle": "Lease Agreement H",
+        "accountName": "Company Theta",
+        "leaseStart": "2022-08-01",
+        "leaseEnd": "2023-08-01",
+        "leaseStatus": "Expired"
+    },
+    {
+        "id": "9",
+        "leaseTitle": "Lease Agreement I",
+        "accountName": "Company Iota",
+        "leaseStart": "2023-04-10",
+        "leaseEnd": "2024-04-10",
+        "leaseStatus": "Active"
+    },
+    {
+        "id": "10",
+        "leaseTitle": "Lease Agreement J",
+        "accountName": "Company Kappa",
+        "leaseStart": "2022-11-05",
+        "leaseEnd": "2023-11-05",
+        "leaseStatus": "Expired"
+    }
+];
 
-export { BUILDINGDATADUMMY, SPACEDATADUMMY };
+
+export { BUILDINGDATADUMMY, SPACEDATADUMMY,  LEASEDATADUMMY};
