@@ -31,8 +31,8 @@ const DASHBOARD_SIDEBAR_LINKS = [
     isOpen: false
   },
   {
-    key: 'client',
-    label: 'Client',
+    key: 'account&contact',
+    label: 'Account & Contact',
     path: '/data-entry-portal/mass-upload/client',
     icon: <BsPeople />,
     isOpen: false

@@ -22,7 +22,7 @@ export default function SpaceSubmit() {
     const handleModalClose = (submitAnother) => {
         setShowModal(false);
         if (submitAnother) {
-            navigate('/data-entry-portal/mass-upload/space'); // Navigate to the same page to submit another data entry
+            navigate('/data-entry-portal/mass-upload/lease'); // Navigate to the same page to submit another data entry
         } else {
             navigate('/home'); // Navigate to a different page, e.g., home or another section
         }
@@ -82,7 +82,7 @@ export default function SpaceSubmit() {
                             </div>
                             <h2 className="text-lg font-semibold text-gray-800 mb-2">Data Successfully Submitted!</h2>
                             <p className="text-sm text-gray-700">
-                                Would you like to add or update space data?
+                                Would you like to add or update Lease data?
                             </p>
                         </div>
                         <div className="flex justify-center space-x-4 mt-4">

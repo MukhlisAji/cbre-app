@@ -397,7 +397,7 @@ export default function ClientTemplate() {
                         />
                     </div>
 
-                    <div className="h-96 overflow-auto shadow shadow-md">
+                    <div className="h-[28rem] overflow-auto shadow shadow-md">
 
                         <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 

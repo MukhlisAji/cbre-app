@@ -426,87 +426,18 @@ const SPACEDATADUMMY = [
 ];
 
 const LEASEDATADUMMY = [
-    {
-        "id": "1",
-        "leaseTitle": "Lease Agreement A",
-        "accountName": "Company Alpha",
-        "leaseStart": "2023-01-01",
-        "leaseEnd": "2024-01-01",
-        "leaseStatus": "Active"
-    },
-    {
-        "id": "2",
-        "leaseTitle": "Lease Agreement B",
-        "accountName": "Company Beta",
-        "leaseStart": "2022-06-15",
-        "leaseEnd": "2023-06-14",
-        "leaseStatus": "Expired"
-    },
-    {
-        "id": "3",
-        "leaseTitle": "Lease Agreement C",
-        "accountName": "Company Gamma",
-        "leaseStart": "2023-03-01",
-        "leaseEnd": "2024-03-01",
-        "leaseStatus": "Active"
-    },
-    {
-        "id": "4",
-        "leaseTitle": "Lease Agreement D",
-        "accountName": "Company Delta",
-        "leaseStart": "2022-09-10",
-        "leaseEnd": "2023-09-09",
-        "leaseStatus": "Expired"
-    },
-    {
-        "id": "5",
-        "leaseTitle": "Lease Agreement E",
-        "accountName": "Company Epsilon",
-        "leaseStart": "2023-05-20",
-        "leaseEnd": "2024-05-20",
-        "leaseStatus": "Active"
-    },
-    {
-        "id": "6",
-        "leaseTitle": "Lease Agreement F",
-        "accountName": "Company Zeta",
-        "leaseStart": "2022-12-01",
-        "leaseEnd": "2023-12-01",
-        "leaseStatus": "Expired"
-    },
-    {
-        "id": "7",
-        "leaseTitle": "Lease Agreement G",
-        "accountName": "Company Eta",
-        "leaseStart": "2023-07-15",
-        "leaseEnd": "2024-07-15",
-        "leaseStatus": "Active"
-    },
-    {
-        "id": "8",
-        "leaseTitle": "Lease Agreement H",
-        "accountName": "Company Theta",
-        "leaseStart": "2022-08-01",
-        "leaseEnd": "2023-08-01",
-        "leaseStatus": "Expired"
-    },
-    {
-        "id": "9",
-        "leaseTitle": "Lease Agreement I",
-        "accountName": "Company Iota",
-        "leaseStart": "2023-04-10",
-        "leaseEnd": "2024-04-10",
-        "leaseStatus": "Active"
-    },
-    {
-        "id": "10",
-        "leaseTitle": "Lease Agreement J",
-        "accountName": "Company Kappa",
-        "leaseStart": "2022-11-05",
-        "leaseEnd": "2023-11-05",
-        "leaseStatus": "Expired"
-    }
-];
+    {"id":"1","leaseTitle":"Lease Agreement A","accountName":"Company Alpha","leaseStart":"2023-01-01","leaseEnd":"2024-01-01","leaseStatus":"Active","space":"Office A1","floor":"21","accountFuzzyMatch":"Alpha Co.","contact":"John Doe","contactFuzzyMatch":"J. Doe"},
+    {"id":"2","leaseTitle":"Lease Agreement B","accountName":"Company Beta","leaseStart":"2022-06-15","leaseEnd":"2023-06-14","leaseStatus":"Expired","space":"Office B2","floor":"22","accountFuzzyMatch":"Beta LLC","contact":"Jane Smith","contactFuzzyMatch":"J. Smith"},
+    {"id":"3","leaseTitle":"Lease Agreement C","accountName":"Company Gamma","leaseStart":"2023-03-01","leaseEnd":"2024-03-01","leaseStatus":"Active","space":"Office C3","floor":"33","accountFuzzyMatch":"Gamma Inc.","contact":"Robert Brown","contactFuzzyMatch":"R. Brown"},
+    {"id":"4","leaseTitle":"Lease Agreement D","accountName":"Company Delta","leaseStart":"2022-09-10","leaseEnd":"2023-09-09","leaseStatus":"Expired","space":"Office D4","floor":"14","accountFuzzyMatch":"Delta Corp.","contact":"Emily White","contactFuzzyMatch":"E. White"},
+    {"id":"5","leaseTitle":"Lease Agreement E","accountName":"Company Epsilon","leaseStart":"2023-05-20","leaseEnd":"2024-05-20","leaseStatus":"Active","space":"Office E5","floor":"15","accountFuzzyMatch":"Epsilon Ltd.","contact":"Michael Green","contactFuzzyMatch":"M. Green"},
+    {"id":"6","leaseTitle":"Lease Agreement F","accountName":"Company Zeta","leaseStart":"2022-12-01","leaseEnd":"2023-12-01","leaseStatus":"Expired","space":"Office F6","floor":"16","accountFuzzyMatch":"Zeta Group","contact":"Sarah Black","contactFuzzyMatch":"S. Black"},
+    {"id":"7","leaseTitle":"Lease Agreement G","accountName":"Company Eta","leaseStart":"2023-07-15","leaseEnd":"2024-07-15","leaseStatus":"Active","space":"Office G7","floor":"27","accountFuzzyMatch":"Eta Enterprises","contact":"William Harris","contactFuzzyMatch":"W. Harris"},
+    {"id":"8","leaseTitle":"Lease Agreement H","accountName":"Company Theta","leaseStart":"2022-08-01","leaseEnd":"2023-08-01","leaseStatus":"Expired","space":"Office H8","floor":"28","accountFuzzyMatch":"Theta Inc.","contact":"Jessica Turner","contactFuzzyMatch":"J. Turner"},
+    {"id":"9","leaseTitle":"Lease Agreement I","accountName":"Company Iota","leaseStart":"2023-04-10","leaseEnd":"2024-04-10","leaseStatus":"Active","space":"Office I9","floor":"39","accountFuzzyMatch":"Iota Services","contact":"Daniel Scott","contactFuzzyMatch":"D. Scott"},
+    {"id":"10","leaseTitle":"Lease Agreement J","accountName":"Company Kappa","leaseStart":"2022-11-05","leaseEnd":"2023-11-05","leaseStatus":"Expired","space":"Office J10","floor":"17","accountFuzzyMatch":"Kappa Solutions","contact":"Laura Adams","contactFuzzyMatch":"L. Adams"}
+]
+
 
 
 export { BUILDINGDATADUMMY, SPACEDATADUMMY,  LEASEDATADUMMY};

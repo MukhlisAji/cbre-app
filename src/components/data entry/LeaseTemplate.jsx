@@ -73,9 +73,18 @@ export default function LeaseTemplate() {
     );
 
     const columns = [
-        { Header: 'Space Name', accessor: 'spaceName', width: 'w-28' },
-        { Header: 'Floor', accessor: 'floor', width: 'w-20' },
-        { Header: 'Unit No', accessor: 'unitNo', width: 'w-20' },
+        { Header: 'Floor', accessor: 'floor', width: 'w-6' },
+        { Header: 'Space', accessor: 'space', width: 'w-10' },
+        { Header: 'Lease Title', accessor: 'leaseTitle', width: 'w-14' },
+        { Header: 'Lease Start', accessor: 'leaseStart', width: 'w-12' },
+        { Header: 'Lease End', accessor: 'leaseEnd', width: 'w-12' },
+        { Header: 'Lease Status', accessor: 'leaseStatus', width: 'w-8' },
+        { Header: 'Account Name', accessor: 'accountName', width: 'w-12' },
+        { Header: 'Account Name Fuzzy Match', accessor: 'accountFuzzyMatch', width: 'w-12' },
+        { Header: 'Contact', accessor: 'contact', width: 'w-12' },
+        { Header: 'Contact Fuzzy Match', accessor: 'contactFuzzyMatch', width: 'w-12' },
+
+
     ];
 
 
@@ -156,7 +165,7 @@ export default function LeaseTemplate() {
         <div>
             <div style={{ height: `${sectionHeight}px` }} className="flex-1 overflow-y-auto flex flex-col px-5 py-5 h-screen p-4 bg-white border-t border-neutral-200 border-sm">
 
-                <div className="bg-white shadow-md p-6 px-3 py-3 mb-5">
+                <div className="bg-white shadow-md p-6 px-3 py-3 mb-5 rounded rounded-md">
 
                     <div className="mt-2 text-c-dark-grayish text-md bg-neutral-100 rounded rounded-md">
 
@@ -260,15 +269,15 @@ export default function LeaseTemplate() {
                         </div>
                     </div>
 
-                    <div className='py-3 flex flex-row gap-4'>
+                    <div className=' flex flex-row gap-4'>
                         <div className="min-w-[16rem] my-4 bg-white w-2/6">
-                            <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">Select the space(s) for the selected building:</h2>
+                            <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4 h-7">Select the space(s) for the selected building:</h2>
                             <div className="relative rounded-sm border border-gray-300 shadow-sm text-sm">
-                                <body className="flex w-full h-96">
+                                <body className="flex w-full h-96 rounded rounded-sm">
                                     <div className="flex flex-col w-full">
                                         {/* Table Headers */}
                                         <div className="flex bg-c-teal text-white">
-                                            <div className="flex items-center justify-start w-1/12 h-10 px-2.5">
+                                            <div className="flex items-center justify-start w-1/12 h-10 px-2.5 ml-2">
                                             </div>
                                             <div className="flex items-center justify-start w-5/12 h-10 px-2.5">
                                                 <span>Building</span>
@@ -283,7 +292,7 @@ export default function LeaseTemplate() {
 
                                         {/* Search and Select All */}
                                         <div className="flex bg-white">
-                                            <div className="flex items-center justify-center w-1/12 h-10 px-2.5 relative">
+                                            <div className="flex items-center justify-center w-1/12 h-10 px-2.5 ml-2 relative">
                                                 <input
                                                     type="checkbox"
                                                     checked={selectedBuildings.length === filteredTemplates.length}
@@ -315,7 +324,7 @@ export default function LeaseTemplate() {
                                         <div className="overflow-auto flex-grow">
                                             {filteredTemplates.map((building, index) => (
                                                 <div key={index} className={`flex ${index % 2 === 0 ? 'bg-gray-100' : ''} hover:bg-gray-200`}>
-                                                    <div className="flex items-center justify-center w-1/12 h-10 px-2.5 relative">
+                                                    <div className="flex items-center justify-center w-1/12 h-10 px-2.5 ml-2 relative">
                                                         <input
                                                             type="checkbox"
                                                             checked={selectedBuildings.includes(building.id)}
@@ -348,9 +357,9 @@ export default function LeaseTemplate() {
 
 
                         <div className="min-w-[16rem] my-4 bg-white w-4/6">
-                            <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">List of existing spaces (tier 1) for the selected building:</h2>
+                            <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4 h-7">List of existing spaces (tier 1) for the selected building:</h2>
                             <div className="relative rounded-sm border border-gray-300 shadow-sm text-sm">
-                                <body className="flex w-full h-96">
+                                <body className="flex min-w-[500px] w-full h-96 rounded rounded-sm">
                                     <div className="flex flex-col w-full">
                                         {/* Table Headers */}
                                         <div className="flex bg-c-teal text-white">
@@ -444,7 +453,9 @@ export default function LeaseTemplate() {
 
                         </div>
                     </div>
+                </div>
 
+                <div className="bg-white shadow-md p-6 px-3 py-3 mb-5 rounded rounded-md">
                     <div className='py-3 flex flex-row gap-4'>
                         <div className="min-w-[16rem] my-4 bg-white w-full md:w-3/5">
                             <h2 className="px-3 text-md text-neutral-700 font-semibold mb-4">List of existing spaces (tier 1) for the selected building:</h2>
@@ -572,9 +583,9 @@ export default function LeaseTemplate() {
                         />
                     </div>
 
-                    <div className="h-96 overflow-auto shadow shadow-md">
+                    <div className="h-[28rem] overflow-auto shadow shadow-md">
 
-                        <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
+                        <CustomTable columns={columns} filteredTemplates={filteredLease} handleSave={handleSave} />
 
                     </div>
 

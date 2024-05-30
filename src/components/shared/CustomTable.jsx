@@ -47,11 +47,11 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
         <tr>
           <th scope="col" className="pl-6 pr-0 py-4 w-2 font-medium">No.</th> {/* Adjusted column width */}
           {columns.map((col) => (
-            <th key={col.accessor} scope="col" className={`px-6 py-4 ${col.width} font-medium`}>
+            <th key={col.accessor} scope="col" className={`px-2 py-4 ${col.width} font-medium`}>
               {col.Header}
             </th>
           ))}
-          <th scope="col" className="px-6 py-4 w-10 font-medium"></th>
+          <th scope="col" className="px-2 py-4 w-10 font-medium"></th>
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -63,7 +63,7 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
           >
             <td className=" pl-6 py-4 w-2">{index + 1}</td> {/* Adjusted cell width */}
             {columns.map((col) => (
-              <td key={col.accessor} className={`px-6 py-4 ${col.width} ${col.accessor === "errorMessage" ? "text-red-500" : ""}`}>
+              <td key={col.accessor} className={`px-2 py-4 ${col.width} ${col.accessor === "errorMessage" ? "text-red-500" : ""}`}>
                 {editingRowId === building.id ? (
                   <input
                     type="text"

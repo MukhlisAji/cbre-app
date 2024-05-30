@@ -152,7 +152,7 @@ export default function BuildingTemplate() {
 
         <div className="bg-white shadow-md p-6 px-3 py-3 mb-5">
 
-          <div className={`mt-2 text-c-dark-grayish text-md bg-neutral-100 rounded rounded-md ${isUpdating ? 'w-full': 'w-1/3 px-2'}`}>
+          <div className={`mt-2 text-c-dark-grayish text-md bg-neutral-100 rounded rounded-md ${isUpdating ? 'w-full': 'min-w-[370px] w-1/3 px-2'}`}>
 
             <div className=' px-3 py-3 items-centered flex flex-row gap-4 '>
 
@@ -190,7 +190,7 @@ export default function BuildingTemplate() {
               <div className='flex flex-row justify-between w-full px-2 '>
                 <div className='w-full flex flex-row items-center justify-between mb-3'>
                   <div
-                    className='flex flex-row items-center justify-between px-1  w-full'
+                    className='flex flex-row items-center justify-between px-1 font-semobold w-full'
 
                   >Download selected template</div>
 
@@ -339,7 +339,7 @@ export default function BuildingTemplate() {
             />
           </div>
 
-          <div className="h-96 overflow-auto shadow shadow-md">
+          <div className="h-[28rem] overflow-auto shadow shadow-md">
             <CustomTable columns={columns} filteredTemplates={filteredTemplates} handleSave={handleSave} />
 
           </div>

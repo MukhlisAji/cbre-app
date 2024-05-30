@@ -33,7 +33,7 @@ export default function Header() {
           <Popover>
             {({ open }) => (
               <>
-                <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-700", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
+                <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-800", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
                   <HiOutlineChatAlt fontSize={20} />
                 </PopoverButton>
                 <Transition
@@ -61,7 +61,7 @@ export default function Header() {
           <Popover>
             {({ open }) => (
               <>
-                <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-700", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
+                <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-800", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
                   <HiOutlineBell fontSize={20} />
                 </PopoverButton>
                 <Transition

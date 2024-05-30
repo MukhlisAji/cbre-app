@@ -30,16 +30,16 @@ export default function DataEntrySidebar() {
   };
 
   return (
-    <div className={`bg-white p-3 flex flex-col text-neutral-700 shadow-xl z-10 ${isOpen ? 'min-w-64' : 'w-20'}`}>
-      <div className="flex flex-col items-center px-1 py-3">
+    <div className={`bg-white p-3 flex flex-col text-neutral-700 shadow-xl z-10 transition-all duration-500 ease-in-out ${isOpen ? 'min-w-64' : 'w-20'}`}>
+      <div className="flex flex-col items-center px-1 py-3 transition-all duration-500 ease-in-out">
         <a href="/data-entry-portal/mass-upload" className="flex flex-col cursor-pointer focus:outline-none hover:no-underline">
           <div className="flex items-center gap-2">
-            <span className={`text-c-dark-grayish  ${isOpen ? 'text-4xl' : 'text-md'} font-bold font-logo`}>data entry</span>
+            <span className={`text-c-dark-grayish transition-all duration-500 ease-in-out ${isOpen ? 'text-4xl' : 'text-md'} font-bold font-logo`}>data entry</span>
           </div>
           <span className="text-xs text-c-dark-grayish ml-auto">by CBRE</span>
         </a>
       </div>
-      <div className={`flex-1 py-8 flex flex-col gap-0.5`}>
+      <div className={`flex-1 py-8 flex flex-col gap-0.5 transition-all duration-500 ease-in-out`}>
         {DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarLink
             key={item.key}
@@ -50,12 +50,14 @@ export default function DataEntrySidebar() {
           />
         ))}
       </div>
-      {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item) => (
-        <SidebarLink key={item.key} item={item} isOpen={isOpen} />
-      ))}
+      <div className="transition-all duration-500 ease-in-out">
+        {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item) => (
+          <SidebarLink key={item.key} item={item} isOpen={isOpen} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 function SidebarLink({ item, isOpen, isActive, onClick }) {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
