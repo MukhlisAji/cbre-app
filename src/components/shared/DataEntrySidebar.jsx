@@ -38,8 +38,10 @@ export default function DataEntrySidebar() {
 
     if (activeMenuPath === '' && currentPath !== '/') {
       // Fallback if no active menu item found and not on the root path
-      activeMenuPath = DASHBOARD_SIDEBAR_LINKS.find(item => item.path === '/').path;
+      const fallbackItem = DASHBOARD_SIDEBAR_LINKS.find(item => item.path === '/');
+      activeMenuPath = fallbackItem ? fallbackItem.path : ''; // Set to empty string if fallbackItem is undefined
     }
+    
 
     setActiveMenu(activeMenuPath);
   }, [location]);

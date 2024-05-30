@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-weldon-blue hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
 
-export default function DataEntrySidebar() {
+export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 680);
   const [submenuStates, setSubmenuStates] = useState({});
 
@@ -63,6 +63,8 @@ function SidebarLink({ item, isOpen, onClick, submenuOpen }) {
   const { pathname } = useLocation();
   const submenuRef = useRef(null);
   const [submenuHeight, setSubmenuHeight] = useState(0);
+
+  console.log("SidebarLink item:", item); // Add this line
 
   useEffect(() => {
     if (submenuOpen) {
