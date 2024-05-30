@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import classnames from 'classnames';
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../../lib/const/DataEntryNavigation';
 import { useAppContext } from '../../AppContext';
 import { LiaAngleRightSolid } from 'react-icons/lia';
 import WarningModal from './WarningModal';
 
-
 const linkClasses = 'flex items-center gap-2 px-3 hover:bg-c-weldon-blue hover:no-underline hover:text-white active:bg-c-teal rounded-sm text-sm';
 
 export default function DataEntrySidebar() {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 680);
   const [activeMenu, setActiveMenu] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,6 +24,25 @@ export default function DataEntrySidebar() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    // Determine the active menu based on the current path
+    const currentPath = location.pathname;
+    let activeMenuPath = '';
+
+    DASHBOARD_SIDEBAR_LINKS.forEach(item => {
+      if (currentPath.startsWith(item.path)) {
+        activeMenuPath = item.path;
+      }
+    });
+
+    if (activeMenuPath === '' && currentPath !== '/') {
+      // Fallback if no active menu item found and not on the root path
+      activeMenuPath = DASHBOARD_SIDEBAR_LINKS.find(item => item.path === '/').path;
+    }
+
+    setActiveMenu(activeMenuPath);
+  }, [location]);
 
   const handleMenuClick = (path) => {
     setActiveMenu(path);
@@ -66,7 +85,6 @@ function SidebarLink({ item, isOpen, isActive, onClick }) {
   const [showWarningModal, setShowWarningModal] = useState(false);
 
   const navigate = useNavigate();
-
 
   const handleClick = (event) => {
     if (isDirty) {
