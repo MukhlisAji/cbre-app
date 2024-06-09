@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import CustomTable from '../shared/CustomTable'
-import { SPACEDATADUMMY } from '../../lib/const/DataEntryDummy';
+import { CONTACTDATADUMMY } from '../../lib/const/DataEntryDummy';
 import { useNavigate } from 'react-router-dom';
 import { IoCheckmark, IoClose } from 'react-icons/io5';
 import { MdCheck} from 'react-icons/md';
 
 
 
-export default function ClientSubmit() {
+export default function ContactSubmit() {
     const [templateSearchTerm, setTemplateSearchTerm] = useState('');
     const [showModal, setShowModal] = useState(false);
 
@@ -22,24 +22,28 @@ export default function ClientSubmit() {
     const handleModalClose = (submitAnother) => {
         setShowModal(false);
         if (submitAnother) {
-            navigate('/data-entry-portal/mass-upload/client'); // Navigate to the same page to submit another data entry
+            navigate('/data-entry-portal/mass-upload/account-contact'); // Navigate to the same page to submit another data entry
         } else {
             navigate('/home'); // Navigate to a different page, e.g., home or another section
         }
     };
 
     const navigate = useNavigate();
-    const filteredTemplates = SPACEDATADUMMY.filter((item) =>
+    const filteredTemplates = CONTACTDATADUMMY.filter((item) =>
         Object.values(item).some((value) =>
             value.toString().toLowerCase().includes(templateSearchTerm.toLowerCase())
         )
     );
 
+    
     const columns = [
-        { Header: 'Space Name', accessor: 'spaceName', width: 'w-28' },
-        { Header: 'Floor', accessor: 'floor', width: 'w-20' },
-        { Header: 'Unit Nor', accessor: 'unitNo', width: 'w-20' },
-    ];
+        { Header: 'First Name', accessor: 'firstName', width: 'w-20' },
+        { Header: 'last Name', accessor: 'lastName', width: 'w-16' },
+        { Header: 'Phone Number', accessor: 'phoneNumber', width: 'w-20' },
+        { Header: 'Address', accessor: 'address', width: 'w-24' },
+        { Header: 'Account Name', accessor: 'accountName', width: 'w-20' },
+        { Header: 'Highest Fuzzy Match', accessor: 'highestFuzzyMatch', width: 'w-16' },
+      ];
 
     const [templates, setTemplates] = useState(filteredTemplates);
 
@@ -133,7 +137,7 @@ export default function ClientSubmit() {
                 </div>
                 <div className="flex justify-end">
                     <button
-                        onClick={() => handleSubmit('/data-entry-portal/mass-upload/client/submit')}
+                        onClick={() => handleSubmit('/data-entry-portal/mass-upload/account/submit')}
                         className="w-32 mx-2 py-2 mt-3 bg-c-teal text-white hover:text-white hover:bg-c-weldon-blue focus:outline-none shadow-md rounded rounded-md"
                     >
                         Submit

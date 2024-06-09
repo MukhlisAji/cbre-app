@@ -439,5 +439,25 @@ const LEASEDATADUMMY = [
 ]
 
 
+const CONTACTDATADUMMY = [
+    {"id":1,"firstName":"John","lastName":"Doe","phoneNumber":"+1-202-555-0110","address":"1234 Elm Street, Springfield, IL, 62701, USA","accountName":"johndoe123","highestFuzzyMatch":95},
+    {"id":2,"firstName":"Jane","lastName":"Smith","phoneNumber":"+1-202-555-0120","address":"5678 Oak Avenue, Metropolis, NY, 10001, USA","accountName":"janesmith456","highestFuzzyMatch":89},
+    {"id":3,"firstName":"Michael","lastName":"Johnson","phoneNumber":"+1-202-555-0130","address":"9101 Pine Road, Gotham, NJ, 07001, USA","accountName":"michaeljohnson789","highestFuzzyMatch":92},
+    {"id":4,"firstName":"Emily","lastName":"Davis","phoneNumber":"+1-202-555-0140","address":"1112 Maple Lane, Star City, CA, 90001, USA","accountName":"emilydavis321","highestFuzzyMatch":88},
+    {"id":5,"firstName":"William","lastName":"Brown","phoneNumber":"+1-202-555-0150","address":"1357 Cedar Boulevard, Central City, FL, 32701, USA","accountName":"williambrown654","highestFuzzyMatch":90},
+    {"id":6,"firstName":"Emma","lastName":"Wilson","phoneNumber":"+1-202-555-0160","address":"2468 Birch Street, Coast City, TX, 73301, USA","accountName":"emmawilson987","highestFuzzyMatch":93},
+    {"id":7,"firstName":"Olivia","lastName":"Martinez","phoneNumber":"+1-202-555-0170","address":"3579 Cedar Street, Keystone City, WA, 98001, USA","accountName":"oliviamartinez852","highestFuzzyMatch":87},
+    {"id":8,"firstName":"James","lastName":"Anderson","phoneNumber":"+1-202-555-0180","address":"4680 Pine Avenue, Blüdhaven, OR, 97201, USA","accountName":"jamesanderson963","highestFuzzyMatch":94},
+    {"id":9,"firstName":"Sophia","lastName":"Taylor","phoneNumber":"+1-202-555-0190","address":"5791 Oak Lane, National City, NV, 89001, USA","accountName":"sophiataylor741","highestFuzzyMatch":91},
+    {"id":10,"firstName":"Liam","lastName":"Moore","phoneNumber":"+1-202-555-0200","address":"6802 Maple Street, Gateway City, AZ, 85001, USA","accountName":"liammoore159","highestFuzzyMatch":86},
+    {"id":11,"firstName":"Mia","lastName":"Jackson","phoneNumber":"+1-202-555-0210","address":"7913 Elm Avenue, New Carthage, NM, 87501, USA","accountName":"miajackson753","highestFuzzyMatch":92},
+    {"id":12,"firstName":"Noah","lastName":"White","phoneNumber":"+1-202-555-0220","address":"8024 Birch Lane, Smallville, CO, 80501, USA","accountName":"noahwhite258","highestFuzzyMatch":88},
+    {"id":13,"firstName":"Isabella","lastName":"Harris","phoneNumber":"+1-202-555-0230","address":"9135 Cedar Boulevard, Central City, FL, 32701, USA","accountName":"isabellaharris369","highestFuzzyMatch":90},
+    {"id":14,"firstName":"Lucas","lastName":"Martin","phoneNumber":"+1-202-555-0240","address":"10246 Pine Road, Fawcett City, MA, 01001, USA","accountName":"lucasmartin147","highestFuzzyMatch":85},
+    {"id":15,"firstName":"Ava","lastName":"Thompson","phoneNumber":"+1-202-555-0250","address":"11357 Maple Lane, Coast City, TX, 73301, USA","accountName":"avathompson951","highestFuzzyMatch":93}
+]
 
-export { BUILDINGDATADUMMY, SPACEDATADUMMY,  LEASEDATADUMMY};
+
+
+
+export { BUILDINGDATADUMMY, SPACEDATADUMMY,  LEASEDATADUMMY, CONTACTDATADUMMY};

@@ -12,18 +12,21 @@ import BuildingSubmitError from "./components/data entry/BuildingSubmitError";
 import SpaceMassUpload from "./components/data entry/SpaceMassUpload";
 import SpaceTemplate from "./components/data entry/SpaceTemplate";
 import LeaseMassUpload from "./components/data entry/LeaseMassUpload";
-import ClientMassUpload from "./components/data entry/ClientMassUpload";
+import AccContactMassUpload from "./components/data entry/AccContactMassUpload";
 import LeaseTemplate from "./components/data entry/LeaseTemplate";
-import ClientTemplate from "./components/data entry/ClientTemplate";
+import AccountTemplate from "./components/data entry/AccountTemplate";
 import SpaceSubmitError from "./components/data entry/SpaceSubmitError";
 import SpaceSubmit from "./components/data entry/SpaceSubmit";
 import LeaseSubmitError from "./components/data entry/LeaseSubmitError";
 import LeaseSubmit from "./components/data entry/LeaseSubmit";
-import ClientSubmitError from "./components/data entry/ClientSubmitError";
-import ClientSubmit from "./components/data entry/ClientSubmit";
+import AccountSubmitError from "./components/data entry/AccountSubmitError";
+import AccountSubmit from "./components/data entry/AccountSubmit";
 import Modal from 'react-modal';
 import { AppProvider } from "./AppContext";
 import DataEntry from "./components/data entry/DataEntry";
+import ContactTemplate from "./components/data entry/ContactTemplate";
+import ContactSubmitError from "./components/data entry/ContactSubmitError";
+import ContactSubmit from "./components/data entry/ContactSubmit";
 
 
 Modal.setAppElement('#root');
@@ -58,10 +61,13 @@ function App() {
             <Route path="lease/submit/error" element={<LeaseSubmitError />} />
             <Route path="lease/submit" element={<LeaseSubmit />} />
 
-            <Route path="client" element={<ClientMassUpload />} />
-            <Route path="client/template" element={<ClientTemplate />} />
-            <Route path="client/submit/error" element={<ClientSubmitError />} />
-            <Route path="client/submit" element={<ClientSubmit />} />
+            <Route path="account-contact" element={<AccContactMassUpload />} />
+            <Route path="account-contact/acc/template" element={<AccountTemplate />} />
+            <Route path="account-contact/acc/submit/error" element={<AccountSubmitError />} />
+            <Route path="account-contact/acc/submit" element={<AccountSubmit />} />
+            <Route path="account-contact/con/template" element={<ContactTemplate />} />
+            <Route path="account-contact/con/submit/error" element={<ContactSubmitError />} />
+            <Route path="account-contact/con/submit" element={<ContactSubmit />} />
 
             <Route path="*" element={<NotFound />} />
           </Route>

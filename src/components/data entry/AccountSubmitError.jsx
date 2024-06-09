@@ -6,7 +6,7 @@ import { MdOutlineErrorOutline } from 'react-icons/md';
 
 
 
-export default function ClientSubmitError() {
+export default function AccountSubmitError() {
     const [templateSearchTerm, setTemplateSearchTerm] = useState('');
     const [showModal, setShowModal] = useState(true); // Show modal on page load
 
@@ -31,11 +31,11 @@ export default function ClientSubmitError() {
     );
 
     const columns = [
-        { Header: 'Error Message', accessor: 'errorMessage', width: 'w-28' },
-        { Header: 'Space Name', accessor: 'spaceName', width: 'w-24' },
-        { Header: 'Floor', accessor: 'floor', width: 'w-12' },
-        { Header: 'Unit Nor', accessor: 'unitNo', width: 'w-24' },
-    ];
+        { Header: 'Account Name', accessor: 'spaceName', width: 'w-24' },
+        { Header: '', accessor: '-', width: 'w-16' },
+        { Header: '', accessor: '-', width: 'w-20' },
+        { Header: '', accessor: '-', width: 'w-24' },
+      ];
 
     const [templates, setTemplates] = useState(filteredTemplates);
 
@@ -121,7 +121,7 @@ export default function ClientSubmitError() {
                 </div>
                 <div className="flex justify-end">
                     <button
-                        onClick={() => handleSubmit('/data-entry-portal/mass-upload/client/submit')}
+                        onClick={() => handleSubmit('/data-entry-portal/mass-upload/account-contact/acc/submit')}
                         className="w-32 mx-2 py-2 mt-3 bg-c-teal text-white hover:text-white hover:bg-c-weldon-blue focus:outline-none shadow-md rounded rounded-md"
                     >
                         Submit
