@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoTrashOutline, IoCheckmark } from 'react-icons/io5';
 import { MdOutlineModeEdit } from 'react-icons/md';
 import { useAppContext } from '../../AppContext';
-
+import { CONTACTDATADUMMY } from '../../lib/const/DataEntryDummy';
 
 const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
   const [editingRowId, setEditingRowId] = useState(null);
   const [editValues, setEditValues] = useState({});
-  const {setIsDirty} = useAppContext();
+  const { setIsDirty } = useAppContext();
+  const [accountNameOptions, setAccountNameOptions] = useState([]);
+
+
+  // const accountNameOptions =  ['Account1', 'Account2', 'Account3']; 
+
+  useEffect(() => {
+    const uniqueAccountNames = [...new Set(CONTACTDATADUMMY.map(contact => contact.accountName))];
+    setAccountNameOptions(uniqueAccountNames);
+  }, []);
 
   const handleInputChange = (e, field, id) => {
     setEditValues({
@@ -42,7 +51,7 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
   };
 
   return (
-    <table className="w-full border-collapse bg-white text-left text-sm text-gray-500" style={{ tableLayout: 'fixed'}}>
+    <table className="w-full border-collapse bg-white text-left text-sm text-gray-500" style={{ tableLayout: 'fixed' }}>
       <thead className="bg-c-teal text-white sticky top-0">
         <tr>
           <th scope="col" className="pl-6 pr-0 py-4 w-2 font-medium">No.</th> {/* Adjusted column width */}
@@ -61,20 +70,35 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
             className={`${index % 2 === 0 ? 'bg-gray-100' : ''} ${editingRowId === building.id ? 'bg-blue-50' : 'hover:bg-gray-50 '}`}
             style={editingRowId === building.id ? { border: '1px solid lightblue' } : {}}
           >
-            <td className=" pl-6 py-4 w-2">{index + 1}</td> {/* Adjusted cell width */}
+            <td className="pl-6 py-4 w-2">{index + 1}</td> {/* Adjusted cell width */}
             {columns.map((col) => (
               <td key={col.accessor} className={`px-2 py-4 ${col.width} ${col.accessor === "errorMessage" ? "text-red-500" : ""}`}>
                 {editingRowId === building.id ? (
-                  <input
-                    type="text"
-                    value={editValues[building.id]?.[col.accessor] || ''}
-                    onChange={(e) => handleInputChange(e, col.accessor, building.id)}
-                    className="border border-neutral-300 rounded focus:outline-none px-2 py-1 w-full focus:border-c-teal focus:ring-c-teal hover:border-c-teal"
-                    style={{ width: '100%' }}
-                    onKeyPress={(e) => handleKeyPress(e, building.id)}
-                    readOnly={col.accessor === "errorMessage"}
-                    disabled={col.accessor === "errorMessage"}
-                  />
+                  col.accessor === "accountName" ? (
+                    <select
+                      value={editValues[building.id]?.[col.accessor] || ''}
+                      onChange={(e) => handleInputChange(e, col.accessor, building.id)}
+                      className="border border-neutral-300 rounded focus:outline-none px-2 py-1 w-full focus:border-c-teal focus:ring-c-teal hover:border-c-teal"
+                      style={{ width: '100%' }}
+                    >
+                      {accountNameOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      value={editValues[building.id]?.[col.accessor] || ''}
+                      onChange={(e) => handleInputChange(e, col.accessor, building.id)}
+                      className="border border-neutral-300 rounded focus:outline-none px-2 py-1 w-full focus:border-c-teal focus:ring-c-teal hover:border-c-teal"
+                      style={{ width: '100%' }}
+                      onKeyPress={(e) => handleKeyPress(e, building.id)}
+                      readOnly={col.accessor === "errorMessage"}
+                      disabled={col.accessor === "errorMessage"}
+                    />
+                  )
                 ) : (
                   <span className="w-full inline-block">{building[col.accessor]}</span>
                 )}
