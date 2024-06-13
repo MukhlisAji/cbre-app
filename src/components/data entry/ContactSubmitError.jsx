@@ -31,12 +31,12 @@ export default function ContactSubmitError() {
     );
 
     const columns = [
-        { Header: 'First Name', accessor: 'firstName', width: 'w-20' },
-        { Header: 'last Name', accessor: 'lastName', width: 'w-16' },
+        { Header: 'First Name', accessor: 'firstName', width: 'w-14' },
+        { Header: 'last Name', accessor: 'lastName', width: 'w-14' },
         { Header: 'Phone Number', accessor: 'phoneNumber', width: 'w-20' },
         { Header: 'Address', accessor: 'address', width: 'w-24' },
         { Header: 'Account Name', accessor: 'accountName', width: 'w-20' },
-        { Header: 'Highest Fuzzy Match', accessor: 'highestFuzzyMatch', width: 'w-16' },
+        { Header: 'Highest Fuzzy Match', accessor: 'accountName', width: 'w-20' },
       ];
 
     const [templates, setTemplates] = useState(filteredTemplates);

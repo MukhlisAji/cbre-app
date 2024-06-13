@@ -54,7 +54,7 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
     <table className="w-full border-collapse bg-white text-left text-sm text-gray-500" style={{ tableLayout: 'fixed' }}>
       <thead className="bg-c-teal text-white sticky top-0">
         <tr>
-          <th scope="col" className="pl-6 pr-0 py-4 w-2 font-medium">No.</th> {/* Adjusted column width */}
+          <th scope="col" className="px-4 py-4 w-2 font-medium">No.</th> {/* Adjusted column width */}
           {columns.map((col) => (
             <th key={col.accessor} scope="col" className={`px-2 py-4 ${col.width} font-medium`}>
               {col.Header}
@@ -104,7 +104,7 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
                 )}
               </td>
             ))}
-            <td className="px-6 py-4 w-10">
+            <td className="px-2 py-4 w-10">
               <div className="flex justify-end gap-4">
                 {editingRowId === building.id ? (
                   <span onClick={(e) => saveChanges(e, building.id)} className="cursor-pointer">
@@ -112,7 +112,7 @@ const CustomTable = ({ columns, filteredTemplates, handleSave }) => {
                   </span>
                 ) : (
                   <>
-                    <span>
+                    <span className="cursor-pointer">
                       <IoTrashOutline fontSize={18} color="red" />
                     </span>
                     <span onClick={() => startEditing(building.id)} className="cursor-pointer">
