@@ -458,6 +458,16 @@ const CONTACTDATADUMMY = [
 ]
 
 
+const DATASEACRH = [
+    { "account": "Charles Integration Test Account", "address": "6 Test Road CANBERRA, Australian Capital Territory, Australia, 2600", "details": { "clientType": "International", "industry": "Retail Trade - Clothing, Footwear and Personal Accessory", "phone": "28201234" }},
+    { "account": "[DONT USED] test_lowyun", "address": "TOKYO, SHIBUYA-KU, Street1", "details": {}},
+    { "account": "20 Apr Test Account Akash", "address": "_NoStreetNo_ _NoStreetName_, China", "details": { "phone": "0124887767" }},
+    { "account": "26March_Test", "address": "2 BAINES, Northern Territory, Australia", "details": { "phone": "+4567789908" }},
+    { "account": "7-Eleven Hong Kong Test Kitchen", "address": "No known Address Hong Kong, Hong Kong", "details": {}}
+  ];
+  
+  
 
 
-export { BUILDINGDATADUMMY, SPACEDATADUMMY,  LEASEDATADUMMY, CONTACTDATADUMMY};
+
+export { BUILDINGDATADUMMY, SPACEDATADUMMY,  LEASEDATADUMMY, CONTACTDATADUMMY, DATASEACRH};
