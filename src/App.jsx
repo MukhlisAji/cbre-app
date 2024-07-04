@@ -27,6 +27,10 @@ import DataEntry from "./components/data entry/DataEntry";
 import ContactTemplate from "./components/data entry/ContactTemplate";
 import ContactSubmitError from "./components/data entry/ContactSubmitError";
 import ContactSubmit from "./components/data entry/ContactSubmit";
+import ContactMassUpload from "./sf-dummy/ContactMassUpload";
+import ContactNew from "./sf-dummy/ContactNew";
+import ContactUpdate from "./sf-dummy/ContactUpdate";
+import AccAndConSearch from "./sf-dummy/AccAndConSearch";
 
 
 Modal.setAppElement('#root');
@@ -42,6 +46,13 @@ function App() {
             <Route index path="home" element={<Dashboard />} />
             <Route path="property-search" element={<PropertySearch />} />
             <Route path="data-entry-portal/property-database" element={<PropertyDatabase />} />
+
+            <Route path="contact" element={<ContactMassUpload />} />
+            <Route path="contact/template" element={<ContactNew />} />
+            <Route path="contact/update" element={<ContactUpdate />} />
+            <Route path="contact/search" element={<AccAndConSearch />} />
+
+
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="data-entry-portal/mass-upload/*" element={<DataEntryLayout />}>

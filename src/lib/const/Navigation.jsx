@@ -4,6 +4,7 @@ import { GoDatabase, GoLink } from 'react-icons/go';
 import { PiMapTrifoldDuotone, PiStarLight } from 'react-icons/pi';
 import { TbDeviceIpadHorizontalSearch, TbReport } from 'react-icons/tb';
 import { IoAnalytics } from 'react-icons/io5';
+import { MdContactPhone } from 'react-icons/md';
 
 const DASHBOARD_SIDEBAR_LINKS = [
   {
@@ -11,6 +12,13 @@ const DASHBOARD_SIDEBAR_LINKS = [
     label: 'Home',
     path: '/home',
     icon: <VscNote />,
+    isOpen: false
+  },
+  {
+    key: 'contact',
+    label: 'Contact',
+    path: '/contact',
+    icon: <MdContactPhone />,
     isOpen: false
   },
   {
