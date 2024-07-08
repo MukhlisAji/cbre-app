@@ -5,6 +5,7 @@ import { PiMapTrifoldDuotone, PiStarLight } from 'react-icons/pi';
 import { TbDeviceIpadHorizontalSearch, TbReport } from 'react-icons/tb';
 import { IoAnalytics } from 'react-icons/io5';
 import { MdContactPhone } from 'react-icons/md';
+import { HiOutlineCog, HiOutlineQuestionMarkCircle } from 'react-icons/hi';
 
 const DASHBOARD_SIDEBAR_LINKS = [
   {
@@ -77,18 +78,18 @@ const DASHBOARD_SIDEBAR_LINKS = [
 ];
 
 const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
-//   {
-//     key: 'settings',
-//     label: 'Settings',
-//     path: '/settings',
-//     icon: <HiOutlineCog />
-//   },
-//   {
-//     key: 'support',
-//     label: 'Help & Support',
-//     path: '/support',
-//     icon: <HiOutlineQuestionMarkCircle />
-//   }
+  {
+    key: 'settings',
+    label: 'Settings',
+    path: '/settings',
+    icon: <HiOutlineCog />
+  },
+  {
+    key: 'support',
+    label: 'Help & Support',
+    path: '/support',
+    icon: <HiOutlineQuestionMarkCircle />
+  }
 ];
 
 export { DASHBOARD_SIDEBAR_LINKS, DASHBOARD_SIDEBAR_BOTTOM_LINKS };
