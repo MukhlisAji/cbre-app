@@ -1,44 +1,23 @@
 import React from 'react';
-import { VscNote } from 'react-icons/vsc';
-import { GoDatabase, GoLink } from 'react-icons/go';
-import { PiMapTrifoldDuotone, PiStarLight } from 'react-icons/pi';
+import { GoDatabase } from 'react-icons/go';
+import { PiMapTrifoldDuotone } from 'react-icons/pi';
 import { TbDeviceIpadHorizontalSearch, TbReport } from 'react-icons/tb';
 import { IoAnalytics } from 'react-icons/io5';
-import { MdContactPhone } from 'react-icons/md';
+// import { MdContactPhone } from 'react-icons/md';
 import { HiOutlineCog, HiOutlineQuestionMarkCircle } from 'react-icons/hi';
 
 const DASHBOARD_SIDEBAR_LINKS = [
-  {
-    key: 'home',
-    label: 'Home',
-    path: '/home',
-    icon: <VscNote />,
-    isOpen: false
-  },
-  {
-    key: 'contact',
-    label: 'Contact',
-    path: '/contact',
-    icon: <MdContactPhone />,
-    isOpen: false
-  },
-  {
-    key: 'cbreCorporateLink',
-    label: 'CBRE Corporate Link',
-    path: '/cbre-corporate-link',
-    icon: <GoLink />,
-    isOpen: false
-  },
-  {
-    key: 'myFavourites',
-    label: 'My Favourites',
-    path: '/my-favourites',
-    icon: <PiStarLight />,
-    isOpen: false
-  },
+  
+  // {
+  //   key: 'contact',
+  //   label: 'Contact',
+  //   path: '/contact',
+  //   icon: <MdContactPhone />,
+  //   isOpen: false
+  // },
   {
     key: 'propertySearch',
-    label: 'Property Search',
+    label: 'Property',
     path: '/property-search',
     icon: <TbDeviceIpadHorizontalSearch />,
     isOpen: false
@@ -82,13 +61,15 @@ const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
     key: 'settings',
     label: 'Settings',
     path: '/settings',
-    icon: <HiOutlineCog />
+    icon: <HiOutlineCog />,
+    isOpen: false
   },
   {
     key: 'support',
     label: 'Help & Support',
     path: '/support',
-    icon: <HiOutlineQuestionMarkCircle />
+    icon: <HiOutlineQuestionMarkCircle />,
+    isOpen: false
   }
 ];
 
