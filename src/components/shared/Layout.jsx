@@ -6,10 +6,12 @@ import Header from './Header'
 export default function Layout() {
   return (
     <div className='flex flex-row bg-neutral-100 h-screen w-screen overflow-hidden'>
-      <Sidebar />
+      <div className='z-20'>
+        <Sidebar />
+      </div>
       <div className='flex-1 flex flex-col'>
         <Header />
-        <div className='p-4'>{<Outlet />}</div>
+        <div>{<Outlet />}</div>
       </div>
     </div>
   )

@@ -13,6 +13,8 @@ export default function Sidebar() {
   const [submenuStates, setSubmenuStates] = useState({});
   const [activeMenu, setActiveMenu] = useState('');
   const location = useLocation();
+  const currentPath = location.pathname;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,7 +28,6 @@ export default function Sidebar() {
   }, []);
 
   useEffect(() => {
-    const currentPath = location.pathname;
     let activeMenuPath = '';
 
     DASHBOARD_SIDEBAR_LINKS.forEach(item => {
@@ -47,7 +48,12 @@ export default function Sidebar() {
     }
 
     setActiveMenu(activeMenuPath);
-  }, [location]);
+
+    // Check if currentPath is '/map' and close sidebar
+    if (currentPath === '/map') {
+      setIsOpen(false);
+    }
+  }, [currentPath, navigate]);
 
   const handleMenuClick = (path) => {
     setActiveMenu(path);
@@ -70,16 +76,16 @@ export default function Sidebar() {
       <div className={`bg-white p-3 h-screen text-neutral-700 shadow-xl z-10 ${isOpen ? 'w-64' : 'w-16'} duration-300 relative flex flex-col justify-between`}>
         <div>
           <MdKeyboardArrowLeft
-            className={`bg-white text-c-teal text-2xl rounded-full absolute -right-3 top-2  border-c-dark-grayish cursor-pointer ${!isOpen && "rotate-180"}`}
+            className={`bg-white text-c-teal text-2xl rounded-full absolute -right-3 top-2 border border-neutral-300 cursor-pointer hover:text-white hover:bg-c-teal ${!isOpen && "rotate-180"}`}
             onClick={toggleSidebar}
           />
           <div className="flex justify-between items-center mb-4">
-            <div className="flex flex-col items-center px-1">
+            <div className="flex flex-col items-center px-1 mx-auto">
               <a href="/" className="flex flex-col cursor-pointer focus:outline-none hover:no-underline">
                 <div className="flex gap-2">
-                  <span className={`text-c-dark-grayish font-logo ${isOpen ? 'text-7xl' : 'text-xl'} font-semibold`}>one</span>
+                  <span className={`text-c-dark-grayish font-logo ${isOpen ? 'text-7xl font-semibold' : 'text-2xl mt-6 -ml-1 font-bold'} `}>one</span>
                 </div>
-                <span className="text-xs text-c-dark-grayish ml-auto">by CBRE</span>
+                {isOpen && <span className="text-xs text-c-dark-grayish ml-auto">by CBRE</span>}
               </a>
             </div>
           </div>
@@ -99,15 +105,15 @@ export default function Sidebar() {
         </div>
         <div>
           {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item) => (
-            <SidebarLink 
-            key={item.key} 
-            item={item} 
-            isOpen={isOpen} 
-            isActive={item.path === activeMenu} 
-            onClick={() => handleMenuClick(item.path)}                  
-            onSubmenuClick={() => toggleSubmenu(item.key)}
-            submenuOpen={submenuStates[item.key]}
-/>
+            <SidebarLink
+              key={item.key}
+              item={item}
+              isOpen={isOpen}
+              isActive={item.path === activeMenu}
+              onClick={() => handleMenuClick(item.path)}
+              onSubmenuClick={() => toggleSubmenu(item.key)}
+              submenuOpen={submenuStates[item.key]}
+            />
           ))}
         </div>
       </div>
@@ -161,14 +167,18 @@ function SidebarLink({ item, isOpen, isActive, onClick, onSubmenuClick, submenuO
       <Link
         to={item.path}
         className={classnames(
-          'py-3 cursor-pointer',
+          'py-3 cursor-pointer flex items-center w-full',
           isActive ? 'bg-c-teal text-white' : 'text-c-dark-grayish',
           linkClasses
         )}
         onClick={hasSubmenu ? handleSubmenuClick : handleLinkClick}
       >
         <span className='text-xl'>{item.icon}</span>
-        {isOpen && <span>{item.label}</span>}
+        {isOpen && (
+          <span className={`whitespace-nowrap transition-opacity duration-300 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'} flex-grow`}>
+            {item.label}
+          </span>
+        )}
         {hasSubmenu && <MdOutlineKeyboardArrowDown className="ml-auto" fontSize={13} />}
       </Link>
       {hasSubmenu && (
@@ -190,7 +200,7 @@ function SidebarLink({ item, isOpen, isActive, onClick, onSubmenuClick, submenuO
               className={classnames(
                 'py-2',
                 isOpen ? 'pl-12' : 'pl-3',
-                pathname === submenuItem.path ? 'bg-c-teal text-white' : 'text-neutral-700',
+                pathname === submenuItem.path ? 'bg-c-teal text-white' : 'text-c-dark-grayish',
                 linkClasses
               )}
               title={submenuItem.label}
@@ -207,4 +217,5 @@ function SidebarLink({ item, isOpen, isActive, onClick, onSubmenuClick, submenuO
       />
     </div>
   );
+  
 }

@@ -2,21 +2,21 @@ import React from 'react';
 import { HiOutlineArrowLeft, HiOutlineBell, HiOutlineChatAlt, HiOutlineHome } from 'react-icons/hi';
 import { Popover, PopoverButton, PopoverPanel, Transition, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import classnames from 'classnames';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { IoIosSearch } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
+// import { IoIosSearch } from 'react-icons/io';
 // import { useAppContext } from '../../AppContext';
 
 export default function Header() {
   const navigate = useNavigate()
-  const location = useLocation()
-  const formattedPath = location.pathname.substring(1).replace(/\//g, ' /') + ' /';
+  // const location = useLocation()
+  // const formattedPath = location.pathname.substring(1).replace(/\//g, ' /') + ' /';
 
 
   return (
     <div className='shadow-sm'>
       {/* Header */}
       <div className='z-10 bg-gradient-to-r from-c-dark-grayish via-c-dark-grayish to-c-light-grayish h-10 px-4 flex justify-between items-center border-b border-gray-200 shadow shadow-lg'>
-        <div className='relative'>
+        {/* <div className='relative'>
           <HiOutlineArrowLeft
             fontSize={18}
             className='text-neutral-300 absolute top-1/2 -translate-y-1/2 left-3 cursor-pointer'
@@ -27,10 +27,10 @@ export default function Header() {
             className='text-neutral-300 absolute top-1/2 -translate-y-1/2 left-12 cursor-pointer'
             onClick={() => navigate('/')}
           />
-        </div>
+        </div> */}
 
         <div className='flex items-center gap-2 mr-2'>
-          <Popover>
+          {/* <Popover>
             {({ open }) => (
               <>
                 <PopoverButton className={classnames(open && "bg-gray-200 text-neutral-800", "p-1.5 rounded inline-flex items-center text-white hover:text-opacity-100 focus:outline-none active:bg-gray-200 active:text-neutral-700")}>
@@ -84,15 +84,15 @@ export default function Header() {
                 </Transition>
               </>
             )}
-          </Popover>
+          </Popover> */}
 
-          <Menu as={'div'} classnames='relative'>
+          <Menu as="div" className="absolute right-3">
             <div className='inline-flex'>
               <MenuButton className="p-1.5 rounded-full inline-flex items-center text-neutral-300 hover:text-opacity-100 focus:outline-none">
                 <span className='sr-only'>Open menu option </span>
                 <div
                   className='h-6 w-6 rounded-full bg-c-yellow bg-cover bg-no-repeat bg-center'
-                  style={{ backgroundImage: 'url("https://source.unsplash.com/80x80?face")' }}
+                  style={{ backgroundImage: 'url("https://source.unsplash.com/face")' }}
                 >
                   <span className='sr-only'>Mukhlis Aji</span>
                 </div>
@@ -147,21 +147,19 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Path Location with Search Bar */}
-      <div className='bg-white h-10 px-4 flex justify-between items-center border-b border-gray-200 '>
-        <div className="hidden md:block"> {/* Hide on screens smaller than medium (md) */}
+      {/* <div className='bg-white h-10 px-4 flex justify-between items-center border-b border-gray-200 '>
+        <div className="hidden md:block"> 
           <span className="text-gray-400 mr-2 text-xs">{formattedPath}</span>
         </div>
-        <div className="relative w-96 flex justify-end"> {/* Added flex justify-end for right alignment */}
+        <div className="relative w-96 flex justify-end"> 
           <input
             type="text"
             placeholder="Search..."
             className="border w-full border-gray-300 text-sm font-normal rounded-lg px-4 py-0.5 focus:outline-none hover:border-c-teal focus:border-c-teal w-200 mr-1"
           />
-          {/* Add your search button or icon here */}
           <IoIosSearch fontSize={20} className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500" />
         </div>
-      </div>
+      </div> */}
     </div>
 
 

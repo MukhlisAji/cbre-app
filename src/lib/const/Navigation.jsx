@@ -16,15 +16,15 @@ const DASHBOARD_SIDEBAR_LINKS = [
   //   isOpen: false
   // },
   {
-    key: 'propertySearch',
+    key: 'property',
     label: 'Property',
-    path: '/property-search',
+    path: '/property',
     icon: <TbDeviceIpadHorizontalSearch />,
     isOpen: false
   },
   {
-    key: '2d3dMap',
-    label: '2D & 3D Map',
+    key: 'mapViewer',
+    label: 'Map Viewer',
     path: '/map',
     icon: <PiMapTrifoldDuotone />,
     isOpen: false

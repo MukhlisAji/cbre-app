@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/shared/Layout";
 import Dashboard from "./components/Dashboard";
-import PropertySearch from "./components/PropertySearch";
+import PropertyLayout from "./components/property/PropertyLayout";
 import NotFound from "./components/NotFound";
 import DataEntryLayout from "./components/shared/DataEntryLayout";
 import BuildingMassUpload from "./components/data entry/BuildingMassUpload";
@@ -31,6 +31,9 @@ import ContactMassUpload from "./sf-dummy/ContactMassUpload";
 import ContactNew from "./sf-dummy/ContactNew";
 import ContactUpdate from "./sf-dummy/ContactUpdate";
 import AccAndConSearch from "./sf-dummy/AccAndConSearch";
+import Account from "./components/property/Account";
+import Contact from "./components/property/Contact";
+import MapViewer from "./components/map/MapViewer";
 
 
 Modal.setAppElement('#root');
@@ -44,14 +47,16 @@ function App() {
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/" element={<Layout />}>
             <Route index path="home" element={<Dashboard />} />
-            <Route path="property-search" element={<PropertySearch />} />
             <Route path="data-entry-portal/property-database" element={<PropertyDatabase />} />
-
             <Route path="contact" element={<ContactMassUpload />} />
-            <Route path="contact/template" element={<ContactNew />} />
-            <Route path="contact/update" element={<ContactUpdate />} />
-            <Route path="contact/search" element={<AccAndConSearch />} />
-
+              <Route path="contact/template" element={<ContactNew />} />
+              <Route path="contact/update" element={<ContactUpdate />} />
+              <Route path="contact/search" element={<AccAndConSearch />} />
+            <Route path="property" element={<PropertyLayout />}>
+              <Route path="accounts" element={<Account />} />
+              <Route path="contacts" element={<Contact />} />
+            </Route>
+            <Route path="map" element={<MapViewer />} />
 
             <Route path="*" element={<NotFound />} />
           </Route>
@@ -61,17 +66,14 @@ function App() {
             <Route path="building/template" element={<BuildingTemplate />} />
             <Route path="building/submit/error" element={<BuildingSubmitError />} />
             <Route path="building/submit" element={<BuildingSubmit />} />
-
             <Route path="space" element={<SpaceMassUpload />} />
             <Route path="space/template" element={<SpaceTemplate />} />
             <Route path="space/submit/error" element={<SpaceSubmitError />} />
             <Route path="space/submit" element={<SpaceSubmit />} />
-
             <Route path="lease" element={<LeaseMassUpload />} />
             <Route path="lease/template" element={<LeaseTemplate />} />
             <Route path="lease/submit/error" element={<LeaseSubmitError />} />
             <Route path="lease/submit" element={<LeaseSubmit />} />
-
             <Route path="account-contact" element={<AccContactMassUpload />} />
             <Route path="account-contact/acc/template" element={<AccountTemplate />} />
             <Route path="account-contact/acc/submit/error" element={<AccountSubmitError />} />
@@ -79,13 +81,11 @@ function App() {
             <Route path="account-contact/con/template" element={<ContactTemplate />} />
             <Route path="account-contact/con/submit/error" element={<ContactSubmitError />} />
             <Route path="account-contact/con/submit" element={<ContactSubmit />} />
-
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Router>
     </AppProvider>
-
   );
 }
 
