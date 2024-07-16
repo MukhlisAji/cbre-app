@@ -12,4 +12,18 @@ const CONTACTDATADUMMY = [
 
 ]
 
-export { CONTACTDATADUMMY };
+const ACOCUNTDATADUMMY = [
+    {"accountName": "Acme Corp", "accountStatusWithSite": "Active", "localAccountName": "Acme Local", "ofActiveOpportunity": 5, "spoc": "John Doe", "billingCity": "New York", "billingStateProvince": "NY"},
+    {"accountName": "Global Tech", "accountStatusWithSite": "Inactive", "localAccountName": "Global Local", "ofActiveOpportunity": 2, "spoc": "Jane Smith", "billingCity": "San Francisco", "billingStateProvince": "CA"},
+    {"accountName": "Innovative Solutions", "accountStatusWithSite": "Active", "localAccountName": "Innovative Local", "ofActiveOpportunity": 8, "spoc": "Bill Gates", "billingCity": "Seattle", "billingStateProvince": "WA"},
+    {"accountName": "Future Enterprises", "accountStatusWithSite": "Pending", "localAccountName": "Future Local", "ofActiveOpportunity": 3, "spoc": "Elon Musk", "billingCity": "Los Angeles", "billingStateProvince": "CA"},
+    {"accountName": "Tech Innovators", "accountStatusWithSite": "Active", "localAccountName": "Tech Local", "ofActiveOpportunity": 7, "spoc": "Mark Zuckerberg", "billingCity": "Menlo Park", "billingStateProvince": "CA"},
+    {"accountName": "NextGen Tech", "accountStatusWithSite": "Inactive", "localAccountName": "NextGen Local", "ofActiveOpportunity": 1, "spoc": "Satya Nadella", "billingCity": "Redmond", "billingStateProvince": "WA"},
+    {"accountName": "AI Solutions", "accountStatusWithSite": "Active", "localAccountName": "AI Local", "ofActiveOpportunity": 9, "spoc": "Sundar Pichai", "billingCity": "Mountain View", "billingStateProvince": "CA"},
+    {"accountName": "Quantum Computing", "accountStatusWithSite": "Pending", "localAccountName": "Quantum Local", "ofActiveOpportunity": 4, "spoc": "Tim Cook", "billingCity": "Cupertino", "billingStateProvince": "CA"},
+    {"accountName": "Cyber Security", "accountStatusWithSite": "Active", "localAccountName": "Cyber Local", "ofActiveOpportunity": 6, "spoc": "Jeff Bezos", "billingCity": "Seattle", "billingStateProvince": "WA"},
+    {"accountName": "Green Energy", "accountStatusWithSite": "Inactive", "localAccountName": "Green Local", "ofActiveOpportunity": 0, "spoc": "Larry Page", "billingCity": "Mountain View", "billingStateProvince": "CA"}
+  ]
+  
+
+export { CONTACTDATADUMMY, ACOCUNTDATADUMMY };

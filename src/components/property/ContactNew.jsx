@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function ContactNew({ onClose }) {
     const [accountName, setAccountName] = useState('');
@@ -17,13 +17,13 @@ export default function ContactNew({ onClose }) {
     const [shippingState, setShippingState] = useState('');
     const [shippingPostalCode, setShippingPostalCode] = useState('');
     const [shippingCountry, setShippingCountry] = useState('');
-    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [setShowSuccessModal] = useState(false);
     const [accountInformationVisible, setAccountInformationVisible] = useState(true);
     const [addressInformationVisible, setAddressInformationVisible] = useState(true);
     const [additionalInformationVisible, setAdditionalInformationVisible] = useState(true);
-    const [accessToken, setAccessToken] = useState('');
-    const [error, setError] = useState(null);
-    const loginInitiated = useRef(false);
+    const [accessToken] = useState('');
+    // const [error, setError] = useState(null);
+    // const loginInitiated = useRef(false);
 
     const toggleVisibility = (section) => {
         switch (section) {

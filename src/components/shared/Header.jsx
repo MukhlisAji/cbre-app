@@ -1,6 +1,5 @@
 import React from 'react';
-import { HiOutlineArrowLeft, HiOutlineBell, HiOutlineChatAlt, HiOutlineHome } from 'react-icons/hi';
-import { Popover, PopoverButton, PopoverPanel, Transition, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import {Transition, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import classnames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 // import { IoIosSearch } from 'react-icons/io';

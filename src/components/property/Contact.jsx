@@ -12,8 +12,7 @@ import {
     CardBody,
 } from "@material-tailwind/react";
 import { FaSearch } from 'react-icons/fa';
-import { AiOutlineUserAdd } from 'react-icons/ai';
-import ReusableTable from '../shared/CustomTableMUI';
+import CustomTableMUI from '../shared/CustomTableMUI';
 import { CONTACTDATADUMMY } from '../../lib/const/DummyData';
 
 const TABS = [
@@ -74,7 +73,7 @@ export default function Contact() {
             </CardHeader>
             <CardBody className="overflow-scroll px-0">
 
-                <ReusableTable tableHead={TABLE_HEAD} tableRows={CONTACTDATADUMMY} />
+                <CustomTableMUI tableHead={TABLE_HEAD} tableRows={CONTACTDATADUMMY} />
             </CardBody>
             <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal">

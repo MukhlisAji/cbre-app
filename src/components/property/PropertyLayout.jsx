@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import ContactNew from './ContactNew';
-import { BsChevronDown } from 'react-icons/bs';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 
@@ -81,11 +80,11 @@ export default function PropertyLayout() {
                     {isMenuOpen('accounts') && (
                         <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
                             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="#" onClick={openModal} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:no-underline" role="menuitem">
+                                <div onClick={openModal} className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 hover:text-gray-900 hover:no-underline" role="menuitem">
                                     <span className="flex items-center">
                                         <span className="mr-2">+</span> New Account
                                     </span>
-                                </a>
+                                </div>
                             </div>
 
                         </div>
@@ -112,11 +111,11 @@ export default function PropertyLayout() {
                     {isMenuOpen('contacts') && (
                         <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
                             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:no-underline" role="menuitem">
+                                <div className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 hover:text-gray-900 hover:no-underline" role="menuitem">
                                     <span className="flex items-center">
                                         <span className="mr-2">+</span> New Contact
                                     </span>
-                                </a>
+                                </div>
                             </div>
                         </div>
                     )}

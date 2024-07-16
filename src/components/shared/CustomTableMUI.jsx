@@ -1,12 +1,11 @@
 import { FaSort } from 'react-icons/fa';
 import {
-    Card,
-    CardBody,
     Typography,
     IconButton,
     Tooltip,
 } from "@material-tailwind/react";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { HiOutlineDotsVertical } from 'react-icons/hi';
 
 function CustomTableMUI({ tableHead, tableRows }) {
     const [selectedRows, setSelectedRows] = useState([]);
@@ -31,7 +30,7 @@ function CustomTableMUI({ tableHead, tableRows }) {
     };
 
     return (
-        <table className="mt-4 w-full min-w-max table-auto text-left">
+        <table className="ml-2 w-full min-w-max table-auto text-left">
             <thead>
                 <tr>
                     <th
@@ -94,7 +93,7 @@ function CustomTableMUI({ tableHead, tableRows }) {
                             <td className={classes}>
                                 <Tooltip content="Edit">
                                     <IconButton variant="text">
-                                        <FaSort className="h-4 w-4" />
+                                        <HiOutlineDotsVertical className="h-4 w-4" />
                                     </IconButton>
                                 </Tooltip>
                             </td>

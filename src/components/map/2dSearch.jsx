@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BiSearch, BiHomeAlt, BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+import { BiSearch, BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import CustomDropdown from '../shared/CustomDropdown';
 
 export default function TwoDSearch() {
